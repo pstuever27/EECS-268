@@ -1,0 +1,81 @@
+Notes 9/1/21
+-Join women in computing
+	-men allowed :)
+	
+
+-We're going to do a board work over exceptions
+	-Assume there is a function called dangerous. This function takes a double and returns a double,
+		But sometimes it throws an exception (std::runtime_error), but you don't know why.
+
+	-You must write a main() that will ask the user for a nuber that you will pass to dangerous
+		Until you get a value that works with dangerous, you have to keep prompting the user.
+		Once dangerous works, print the value. Otherwise keep getting new values from user.
+
+
+--------------------Our work------------------------------
+#include <iostream>
+#include <stdexcept>
+
+int main()
+{
+	bool flag = true;
+	
+	while(flag)
+	{
+		double num, ans;
+		std::cout << "Input number:";
+		std::cin >> num;
+
+		try
+		{
+			ans = dangerous(num);
+			std::cout << ans;
+			flag = false;
+		}
+		catch(std::runtime_error& rte)
+		{
+			std::cout << rte.what() << endl;
+		}
+	}	
+return(0);
+}
+
+---------------------New Stuff----------------------
+Templating!
+
+	int myMult(int num1, int num2)
+	{
+		//we know this will work for integers, but not for doubles (will truncate decimals)
+		return(num1 * num2);
+	}
+
+	double myMult(double num1, double num2)
+	{
+		//this one will work with doubles, but now we have 2 different functions and that's not efficient
+		return(num1 * num2);
+	}
+
+This is a waste of time to have to write a bunch of functions for different types
+	-Templates will solve this.
+
+Here's how to write it:
+	template <typename T> //"T" is the name, "typename" is what tells the system we'll figure out the type later.
+
+Example:
+
+	template <typename T> //this basically defines the type "T" as a wildcard type
+	T myMalt(T num1, T num2) //This defines num1 and num2 as T objects
+	{
+		return(num1 * num2 + 1);
+	}
+
+Used in a main:
+
+	int main()
+	{
+	std::cout << myMalt<int>(5, 10) << '\n'; 
+		//'<int>' tells the template what type to use.
+	std::cout << myMalt<double>(5.5, 10.5) << '\n';
+		//"<double>" says it'll be a double 
+
+	

@@ -1,0 +1,35 @@
+Notes for 9/10/21--------------------------------
+
+-Career fair is next week (9/15)
+    -They just talked to us about how to not look stupid at the career fair
+
+Interfaces ----------------------------
+
+if there is a class hirearchy:
+
+            shape
+triangle    circle  Rectangle //types of shapes
+
+From shape.h---------
+//virtual double area() const; allows for other types of shapes to use this, but doesn't state a definition because different shapes have different area equations.
+    
+    virtual doulbe area() const = 0; //pure virtual method. Method without definiton.
+        //This REQUIRES that the shapes make their own definiton.
+--------------------
+
+Plain virtual vs. Pure virtual
+
+ -Plain virtual //allows// for the derived to provide its own definition for a method, and will use that class' definiton even if you have a pointer/reference
+  of the base type pointing/refering on object of the derived type (that's polymorphism, folks)
+
+ -Pure virtual //obligates// for the derived to provide its own definition for a method, and will not compile without the definition. 
+    -Pretty much just tells the code, "Hey shapes have area, they'll let you know how to get it."
+    - This syntax for the original area method is: 
+        -virtual doulbe area() const = 0;
+            -The '= 0;' makes it pure
+
+Interfaces: Class that contains only pure virtual methods*
+    -> We would say that Triangle, Circle, Rectangle //implement// the interface
+    -> There is no .cpp file for an interface
+    
+    The purpose of an interface is to divorce the functionality of a class from the implementation

@@ -1,0 +1,63 @@
+``8/30 Notes EECS 268:
+Exceptions:
+Used when the answer cannot be valid. [e.g. throw(std::runtime_error(message));]
+Exception Library - #include <stdexcept>
+Handling exceptions
+-Any uncaught exceptions will crash your code
+-That exception should be caught and handeled by the caller
+-Only enter catch block if an exception was thrown
+-What you do in catch block depends on what you are handling (print error message, restart for loop, etc...)
+-Try block gets skipped if exception was thrown
+
+	int myDiv(int num, int denom) {
+		if(denom != 0)
+			return(num / denom);
+		else
+			throw(std::runtime_error("Div by 0"));
+
+	}
+
+	int main() {
+		int ans = 0;
+		ans = myDiv(10,5); //no if, returns 2  //adding if, returns 2 again //add exception, returns 2
+		ans = myDiv(10,0); //no if, crashes program  //adding if, returns garbage value //add exception, unhandeled exception error
+	}
+
+	int mainModified() {
+		int ans = 0;
+		ans = myDiv(10,5); //returns 2
+		try {
+			ans = myDiv(10,0); //ans voided out due to exception, ans will still be 2
+			std::cout << ans << '\n';
+		}
+		catch(std::exception& e) {
+			std::cout << e.what() << '\n';
+		}
+	}
+
+	**You can use multiple catch blocks for one try block** **Won't use multiple catch blocks in 268** 
+	try {
+		//something risky
+	}
+	catch(std::runtime_error& rte) {
+		
+	}
+	catch(std::logic_error& le) {
+		
+	}
+	catch(...) { //... = whatever, kinda like catching any exceptions
+		
+	}
+
+Assume there is a function named dangerous. This function takes a double and returns a double.
+But, sometimes it throws a std::runtime_error. We don't know exactly why, but it does.
+Goal: Pass 55 to dangerous and print the answer if it works, or print "ERROR" if an exception was thrown.
+
+	double ans = 0;
+	try {
+		ans = dangerous(55);
+		std::cout << ans;
+	}
+	catch(std::exception& e) {
+		std::cout << "ERROR";
+	}

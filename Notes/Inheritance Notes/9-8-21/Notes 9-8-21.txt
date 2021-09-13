@@ -1,0 +1,102 @@
+//Inheritance
+
+//Animal.h
+
+#ifndef ANIMAL_H
+#define ANIMAL_H
+
+class Animal
+{
+public:
+  Animal();
+  virtual void eat(); //virtual keyword will tell animal.h to look at dog.h to allow it to use these methods
+  virtual void sleep();
+}
+
+
+
+
+//Animal.cpp-----------------------
+  //Think Generic
+
+#include "Animal.h"
+
+Animal::Animal()
+{
+  std::cout << "Animal constructed/n"
+}
+
+void Animal::Eat()
+{
+  std::cout << "Animal eating/\"
+}
+
+//dog.h------------------------------
+  //This is more specialized
+#ifndef DOG_H
+#define DOG_H
+
+#include "Animal.h"
+
+class Dog : public Animal
+{
+    public:
+    void doTrick();
+    virtual void sleep();
+    virtual void eat();
+};
+
+#endif
+
+//dog.cpp---------------------------
+#include "Dog.h"
+
+void Dog::doTrick()
+{
+  std::cout << "Trick Happening...\n";
+}
+
+//Basically, you can have custom definitions from the animal class that will do something differents
+void Dog::sleep()
+{
+  std::cout << "Hrp. Hrp. Hrrp. ruf.\n";
+}
+
+void Dog::eat()
+{
+  doTrick();
+  std::cout << "DOG EATING\n";
+}
+
+//main-------------------------------
+#include <iostream>
+#include "Animal.h"
+#include "Dog.h"
+
+void playwithanimal(animal& a)
+{
+    a.eat();
+    a.sleep(); //These are good because animal knows how to eat and sleep
+    //a.doTrick(); --- This wouldn't work because only dogs can do tricks, animal class objects can't
+
+}
+
+int main()
+{
+  Animal myAnimal;
+  Dog myDog;
+  playwithanimal(myAnimal);
+  playwithanimal(myDog);
+  return(0);
+}
+
+//A pointer/reference of the Base type that is pointing/refering the derived type, can only access Base type members
+  //Example:
+
+Animal* aPtr = new Dog(); //This is fine
+aPtr->eat();
+aPtr->sleep();
+aPtr->doTrick(); //Error
+Dog* dPtr = new Animal();//Error, can't have something smaller than Generic point to generic
+
+//Polymorphism
