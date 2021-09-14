@@ -6,7 +6,7 @@ class Shape
    public:
    virtual double area() const = 0;
    virtual std::string shapeName() const = 0;
-   virtual ~Shape() {}
+   virtual ~Shape() 
 };
 
 #endif
