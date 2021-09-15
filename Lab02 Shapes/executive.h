@@ -8,7 +8,8 @@ class executive
 {
 
 public:
-    executive(/* args */);
+    executive(std::string fileName);
     ~executive();
 };
 
+#endif

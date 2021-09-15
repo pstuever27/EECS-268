@@ -12,7 +12,7 @@ class Shape
     //virtual double area() const; 
         //allows for other types of shapes to use this, but doesn't state a definition because different shapes have different area equations.
     
-    virtual doulbe area() const = 0; //pure virtual method. Method without definiton.
+    virtual double area() const = 0; //pure virtual method. Method without definiton.
         //This REQUIRES that the shapes make their own definiton.
 };
 

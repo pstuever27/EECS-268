@@ -7,6 +7,12 @@
 
 class triangle: public Shape
 {
+    triangle(double base, double height);
     virtual double area() const;
-    ~Triangle();
-}
+    ~triangle();
+
+private:
+    double m_base;
+    double m_height;
+};
+#endif
