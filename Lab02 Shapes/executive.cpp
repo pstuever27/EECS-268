@@ -22,10 +22,9 @@ void executive::run()
   if(inFile.is_open())
   {
       inFile >> arrsize;
-      container = new ShapeContainer[arrsize];
+      ShapeContainer container = new ShapeContainer[arrsize];
 
-    for(int i = 0; i<arrsize; i++)
-    {
+      do{
       inFile >> function >> index >> type;
 
 
@@ -54,7 +53,7 @@ void executive::run()
         std::cout << "Shape at index " //l;ksajfdjsadkjsadfkj
       }
 
-    }
+    }while(function != "EXIT")
   }
 }
 executive::~executive()
