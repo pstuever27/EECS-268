@@ -13,6 +13,10 @@ double rectangle::area() const
     area = (m_base * m_height);
     return(area);
 }
+std::string rectangle::shapeName()
+{
+  return "Rectangle ";
+}
 rectangle::~rectangle()
 {
     delete[] rectangle;

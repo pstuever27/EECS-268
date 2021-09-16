@@ -17,6 +17,10 @@ double triangle::area() const
     area = 1/2(m_base*m_height);
     return(area);
 }
+std::string triangle::shapeName()
+{
+  return "Triangle ";
+}
 triangle::~triangle()
 {
     delete[] triangle;
