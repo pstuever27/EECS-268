@@ -1,0 +1,23 @@
+Notes for 9/15/21
+
+Recap:
+    Exceptions
+    Templating
+    Inheritance
+        Interfaces
+
+Next Topic for 2 weeks: 
+Linked Structures
+
+    -Recall traits of arrays
+        -When you create an array, you must pick thd size and the type
+        -With limitation we'll address with linked structures is the fixed size part
+        -
+    -Goal: Allocate space as needed; not using fixed size. Same for deallocation, just take away the one element
+
+The building block for the linked structures is going to be...
+    -*Nodes*
+     -can hold a value
+     -Has the ability to point to another node 
+     -Not pointing to a node at the end is null
+
