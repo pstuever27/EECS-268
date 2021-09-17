@@ -50,10 +50,10 @@ void executive::run()
       }
       else if(function == "PRINT")
       {
-        std::cout << "Shape at index " //l;ksajfdjsadkjsadfkj
+        std::cout << "Shape at index "; //l;ksajfdjsadkjsadfkj
       }
 
-    }while(function != "EXIT")
+    }while(function != "EXIT");
   }
 }
 executive::~executive()
