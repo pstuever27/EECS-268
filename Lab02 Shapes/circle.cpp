@@ -12,6 +12,10 @@ double circle::area() const;
     area = M_PI * (m_radius * m_radius);
     return(area);
 }
+std::string circle::shapeName()
+{
+  return "Circle ";
+}
 circle::~circle
 {
     delete[] circle;

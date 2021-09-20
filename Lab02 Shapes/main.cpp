@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include "executive.h"
 
 int main(int argc, char* argv[])
 {
@@ -7,10 +8,10 @@ int main(int argc, char* argv[])
   std::string fileName;
   if(argc > 1)
   {
-    fileName = argv[1];
+
+    executive exec(argv[1]);
   //makes menu object and begins the program by calling .run
-    Shape run;
-    run.run(fileName);
+    exec.run(            /*hehe*/         );
   }
   else
   {
@@ -18,6 +19,4 @@ int main(int argc, char* argv[])
     std::cout << "Invalid Filename!\n";
   }
   return(0);
-}
-
 }
