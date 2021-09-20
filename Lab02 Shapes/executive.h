@@ -16,7 +16,7 @@ public:
 private:
     int amount;
     std::string m_fileName;
-    ShapeContainer colander;
+    ShapeContainer* container;
 };
 
 #endif

@@ -1,11 +1,11 @@
 #include "executive.h"
-#include "ShapeContainer.h"
 #include <iostream>
 #include <fstream>
 
 executive::executive(std::string argv)
 {
     m_fileName = argv;
+    run();
 }
 void executive::run()
 {
@@ -22,7 +22,7 @@ void executive::run()
   if(inFile.is_open())
   {
       inFile >> arrsize;
-      ShapeContainer container = new ShapeContainer[arrsize];
+      ShapeContainer container = new ShapeContainer;
 
       do{
       inFile >> function >> index >> type;
@@ -33,7 +33,7 @@ void executive::run()
         if(type == "REC")
         {
           inFile >> base >> height;
-          container->add()
+          container->add();
         }
         if(type == "TRI")
         {
@@ -58,6 +58,6 @@ void executive::run()
 }
 executive::~executive()
 {
-    delete(container);
+    delete[] container;
     //not sure this is correct
 }
