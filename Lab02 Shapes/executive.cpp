@@ -22,7 +22,7 @@ void executive::run()
   if(inFile.is_open())
   {
       inFile >> arrsize;
-      ShapeContainer container = new ShapeContainer;
+      ShapeContainer container = new ShapeContainer();
 
       do{
       inFile >> function >> index >> type;
