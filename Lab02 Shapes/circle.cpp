@@ -6,17 +6,15 @@ circle::circle(double radius)
 {
     m_radius = radius;
 }
-double circle::area() const;
+double circle::area() const
 {
     double area;
     area = M_PI * (m_radius * m_radius);
     return(area);
 }
-std::string circle::shapeName()
+std::string circle::shapeName() const
 {
   return "Circle ";
 }
-circle::~circle
-{
-    delete[] circle;
-}
+circle::~circle()
+{}

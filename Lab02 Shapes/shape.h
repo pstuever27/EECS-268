@@ -1,5 +1,8 @@
 #ifndef SHAPE_H
 #define SHAPE_H
+#include "rectangle.h"
+#include "circle.h"
+#include "triangle.h"
 #include <string>
 class Shape
 {

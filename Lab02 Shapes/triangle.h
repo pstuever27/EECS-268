@@ -9,7 +9,7 @@ class triangle: public Shape
     triangle(double base, double height);
     virtual double area() const;
     virtual std::string shapeName() const;
-    ~triangle();
+    virtual ~triangle();
 
 private:
     double m_base;
