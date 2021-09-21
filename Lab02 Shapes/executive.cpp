@@ -27,6 +27,8 @@ void executive::run()
       inFile >> amount;
       if (amount > 0)
       {
+          container = new ShapeContainer(amount);
+
           do {
               inFile >> function >> index;
 
@@ -37,24 +39,76 @@ void executive::run()
                   if (type == "REC")
                   {
                       inFile >> base >> height;
+
+                      if(index >= 0 && index < amount)
+                      {
+                          rectangle_obj = new rectangle(base, height);
+                      }
+                      try
+                      {
+                          container->add(rectangle_obj, index);
+                      }
+                      catch(std::exception& e)
+                      {
+                          std::cout << e.what() << '\n';
+                      }    
                  
                   }
-                  if (type == "TRI")
+                  else if (type == "TRI")
                   {
                       inFile >> base >> height;
+
+                      if(index >= 0 && index < amount)
+                      {
+                          triangle_obj = new triangle(base, height);
+                      }
+                      try
+                      {
+                          container->add(triangle_obj, index);
+                      }
+                      catch(std::exception& e)
+                      {
+                          std::cout << e.what() << '\n';
+                      }
+                      
                   }
-                  if (type == "CIR")
+                  else if (type == "CIR")
                   {
                       inFile >> radius;
+
+                      if(index >= 0 && index < amount)
+                      {
+                          circle_obj = new circle(radius);
+                      }
+
+                      try
+                      {
+                          container->add(circle_obj, index);
+                      }
+                      catch(std::exception& e)
+                      {
+                          std::cout << e.what() << '\n';
+                      }
+                      
                   }
               }
-              else if (function == "REMOVE")
+              else if (function == "DELETE")
               {
-
+                  container->remove(index);
               }
               else if (function == "PRINT")
               {
-                  std::cout << "Shape at index "; //l;ksajfdjsadkjsadfkj
+                  std::cout << "Shape at index " << index << ":";
+
+                  try
+                  {
+                      std::cout << container->shapeName(index) << " area = " << container->area(index) << '\n';
+                  }
+                  catch(std::exception& e)
+                  {
+                      std::cout << e.what() << '\n';
+                  }
+                  
               }
 
           } while (function != "EXIT");
