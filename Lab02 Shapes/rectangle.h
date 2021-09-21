@@ -4,7 +4,7 @@
 #include <cmath>
 #include "shape.h"
 
-class rectangle: public Shape
+class rectangle : public Shape
 {
 private:
     double m_base;

@@ -5,14 +5,15 @@
 #include <math.h>
 #include "shape.h"
 
-class circle: public Shape
+class circle : public Shape
 {
-private:
-   double m_radius;
-public:
+   public:
     circle(double radius);
     virtual double area() const;
     virtual std::string shapeName() const; 
-    virtual ~circle();
+    virtual ~circle(); 
+private:
+   double m_radius;
+
 };
 #endif

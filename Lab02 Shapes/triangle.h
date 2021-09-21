@@ -4,7 +4,7 @@
 #include <iostream>
 #include "shape.h"
 
-class triangle: public Shape
+class triangle : public Shape
 {
     triangle(double base, double height);
     virtual double area() const;
