@@ -12,7 +12,7 @@ private:
 public:
     circle(double radius);
     virtual double area() const;
-    virtual std::string shapeName() const;
+    virtual std::string shapeName() const; 
     virtual ~circle();
 };
 #endif

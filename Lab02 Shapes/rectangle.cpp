@@ -18,6 +18,4 @@ std::string rectangle::shapeName() const
   return "Rectangle ";
 }
 rectangle::~rectangle()
-{
-    
-}
+
