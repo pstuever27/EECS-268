@@ -2,8 +2,7 @@
 #define TRIANGLE_H
 
 #include <iostream>
-#include "Shape.h"
-
+#include "shape.h"
 
 class triangle: public Shape
 {

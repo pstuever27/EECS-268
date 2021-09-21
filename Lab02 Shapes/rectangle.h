@@ -2,7 +2,7 @@
 #define RECTANGLE_H
 #include <iostream>
 #include <cmath>
-#include "Shape.h"
+#include "shape.h"
 
 class rectangle: public Shape
 {
