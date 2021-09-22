@@ -1,3 +1,17 @@
+/** -----------------------------------------------------------------------------
+ *
+ * @file: executive.cpp
+ * @author Paul Stuever
+ * Assignment: EECS-268 Lab 2
+ * @brief: Oh boy. This class takes care of mostly everything related to fileIO and using the various pointers to carry out the functions.
+              It will first initialize the different pointers I have made for the different shapes to nullptr's. Then, when the run method is called, it will
+              make a bunch of data types to take in from the file and will open the file to read it. It then looks at the file size and opens the file to get the function type and index.
+              Then, it will look at the type of function it is using and will accordingly carry out that function with the correct shape (in the case of ADD).
+              Finally, after the run() has closed, the destructor deletes the pointers and closes.
+ * @date:  09/21/20201
+ *
+ ---------------------------------------------------------------------------- **/
+
 #include "executive.h"
 #include <iostream>
 #include <fstream>
@@ -5,7 +19,7 @@
 executive::executive(std::string argv)
 {
     m_fileName = argv;
-    
+
     container = nullptr;
     circle_obj = nullptr;
     rectangle_obj = nullptr;
@@ -36,62 +50,62 @@ void executive::run()
               if (function == "ADD")
               {
                   inFile >> type;
-                  if (type == "REC")
-                  {
-                      inFile >> base >> height;
+                          if (type == "REC")
+                          {
+                              inFile >> base >> height;
 
-                      if(index >= 0 && index < amount)
-                      {
-                          rectangle_obj = new rectangle(base, height);
-                      }
-                      try
-                      {
-                          container->add(rectangle_obj, index);
-                      }
-                      catch(std::exception& e)
-                      {
-                          std::cout << e.what() << '\n';
-                      }    
-                 
-                  }
-                  else if (type == "TRI")
-                  {
-                      inFile >> base >> height;
+                              if(index >= 0 && index < amount)
+                              {
+                                  rectangle_obj = new rectangle(base, height);
+                              }
+                              try
+                              {
+                                  container->add(rectangle_obj, index);
+                              }
+                              catch(std::exception& e)
+                              {
+                                  std::cout << e.what() << '\n';
+                              }
 
-                      if(index >= 0 && index < amount)
-                      {
-                          triangle_obj = new triangle(base, height);
-                      }
-                      try
-                      {
-                          container->add(triangle_obj, index);
-                      }
-                      catch(std::exception& e)
-                      {
-                          std::cout << e.what() << '\n';
-                      }
-                      
-                  }
-                  else if (type == "CIR")
-                  {
-                      inFile >> radius;
+                          }
+                          else if (type == "TRI")
+                          {
+                              inFile >> base >> height;
 
-                      if(index >= 0 && index < amount)
-                      {
-                          circle_obj = new circle(radius);
-                      }
+                              if(index >= 0 && index < amount)
+                              {
+                                  triangle_obj = new triangle(base, height);
+                              }
+                              try
+                              {
+                                  container->add(triangle_obj, index);
+                              }
+                              catch(std::exception& e)
+                              {
+                                  std::cout << e.what() << '\n';
+                              }
 
-                      try
-                      {
-                          container->add(circle_obj, index);
+                          }
+                          else if (type == "CIR")
+                          {
+                              inFile >> radius;
+
+                              if(index >= 0 && index < amount)
+                              {
+                                  circle_obj = new circle(radius);
+                              }
+
+                              try
+                              {
+                                  container->add(circle_obj, index);
+                              }
+                              catch(std::exception& e)
+                              {
+                                  std::cout << e.what() << '\n';
+                              }
+
+                          }
                       }
-                      catch(std::exception& e)
-                      {
-                          std::cout << e.what() << '\n';
-                      }
-                      
-                  }
-              }
               else if (function == "DELETE")
               {
                   container->remove(index);
@@ -108,7 +122,7 @@ void executive::run()
                   {
                       std::cout << e.what() << '\n';
                   }
-                  
+
               }
 
           } while (function != "EXIT");
@@ -118,15 +132,15 @@ void executive::run()
           }
           std::cout << "Exiting...\n";
       }
-        if(amount < 0);
-            {
-                std::cout << "Unable to make the array.\nExiting...\n";
-            }
+        if(amount < 0)
+          {
+              std::cout << "Unable to make the array.\nExiting...\n";
+          }
   }else
   {
       std::cout << "File couldn't be opened!\n";
   }
-  
+
 
 }
 executive::~executive()
@@ -139,9 +153,9 @@ executive::~executive()
     {
         delete circle_obj;
     }
-    if(rectangle_obj != nullptr)
+    if(triangle_obj != nullptr)
     {
-        delete rectangle_obj;
+        delete triangle_obj;
     }
     if(container != nullptr)
     {

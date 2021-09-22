@@ -6,11 +6,11 @@
 
 class triangle : public Shape
 {
-public: 
+public:
     triangle(double base, double height);
     virtual double area() const;
     virtual std::string shapeName() const;
-    virtual ~triangle();
+    //virtual ~triangle();
 
 private:
     double m_base;

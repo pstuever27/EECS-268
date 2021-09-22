@@ -13,6 +13,6 @@ public:
     rectangle(double base, double height);
     virtual double area() const;
     virtual std::string shapeName() const;
-    virtual ~rectangle();
+    //virtual ~rectangle();
 };
 #endif

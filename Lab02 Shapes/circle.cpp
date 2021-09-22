@@ -1,3 +1,12 @@
+/** -----------------------------------------------------------------------------
+ *
+ * @file:
+ * @author Paul Stuever
+ * Assignment: EECS-268 Lab 2
+ * @brief:
+ * @date:  09/21/20201
+ *
+ ---------------------------------------------------------------------------- **/
 #include <iostream>
 #include <cmath>
 #include "circle.h"
@@ -16,5 +25,5 @@ std::string circle::shapeName() const
 {
   return "Circle ";
 }
-circle::~circle()
-{}
+/*circle::~circle()
+{}*/
