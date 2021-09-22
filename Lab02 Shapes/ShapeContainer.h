@@ -1,3 +1,12 @@
+/** -----------------------------------------------------------------------------
+ *
+ * @file:
+ * @author Paul Stuever
+ * Assignment: EECS-268 Lab 2
+ * @brief:
+ * @date:  09/21/20201
+ *
+ ---------------------------------------------------------------------------- **/
 #ifndef SHAPECONTAINER_H
 #define SHAPECONTAINER_H
 #include "shape.h"
