@@ -112,11 +112,39 @@ void executive::run()
               }
 
           } while (function != "EXIT");
+          if(inFile.is_open())
+          {
+              inFile.close();
+          }
+          std::cout << "Exiting...\n";
       }
+        if(amount < 0);
+            {
+                std::cout << "Unable to make the array.\nExiting...\n";
+            }
+  }else
+  {
+      std::cout << "File couldn't be opened!\n";
   }
+  
+
 }
 executive::~executive()
 {
-    delete[] container;
-    //not sure this is correct
+    if(rectangle_obj != nullptr)
+    {
+        delete rectangle_obj;
+    }
+    if(circle_obj != nullptr)
+    {
+        delete circle_obj;
+    }
+    if(rectangle_obj != nullptr)
+    {
+        delete rectangle_obj;
+    }
+    if(container != nullptr)
+    {
+        delete container;
+    }
 }
