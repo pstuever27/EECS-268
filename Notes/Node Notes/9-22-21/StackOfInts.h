@@ -13,7 +13,7 @@ class Stack : public StackInterface<T>
 	public:
 	Stack();
 	virutal void pop();
-	cirtual void push(T entry);
+	virtual void push(T entry);
 	virtual bool isEmpty() const;
 	virtual T peek() const;
 	
