@@ -1,5 +1,5 @@
 Exercise1: main.o executive.o ShapeContainer.o rectangle.o circle.o triangle.o
-		g++ -std=c++11 -g -Wall main.o executive.o ShapeContainer.o Shape.o rectangle.o circle.o triangle.o -o Exercise1
+		g++ -std=c++11 -g -Wall main.o executive.o ShapeContainer.o rectangle.o circle.o triangle.o -o Exercise1
 main.o: main.cpp executive.h
 		g++ -std=c++11 -g -Wall -c main.cpp
 executive.o: ShapeContainer.h executive.h executive.cpp

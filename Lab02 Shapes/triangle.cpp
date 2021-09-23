@@ -1,3 +1,12 @@
+/** -----------------------------------------------------------------------------
+ *
+ * @file:
+ * @author Paul Stuever
+ * Assignment: EECS-268 Lab 2
+ * @brief:
+ * @date:  09/21/20201
+ *
+ ---------------------------------------------------------------------------- **/
 #include "triangle.h"
 #include <iostream>
 #include <math.h>
@@ -19,5 +28,5 @@ std::string triangle::shapeName() const
 {
   return "Triangle ";
 }
-triangle::~triangle()
-{}
+/*triangle::~triangle()
+{}*/

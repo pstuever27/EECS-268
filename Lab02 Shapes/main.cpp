@@ -1,3 +1,12 @@
+/** -----------------------------------------------------------------------------
+ *
+ * @file: main.cpp
+ * @author Paul Stuever
+ * Assignment: EECS-268 Lab 2
+ * @brief: This file will take the argv and argc from the execution and pass it into my executive class for running the program
+ * @date:  09/21/20201
+ *
+ ---------------------------------------------------------------------------- **/
 #include <iostream>
 #include <fstream>
 #include "executive.h"
@@ -11,7 +20,7 @@ int main(int argc, char* argv[])
 
     executive exec(argv[1]);
   //makes menu object and begins the program by calling .run
-    exec.run(            /*hehe*/         );
+    exec.run();
   }
   else
   {
@@ -20,19 +29,3 @@ int main(int argc, char* argv[])
   }
   return(0);
 }
-/*        .--'''''''''--.
-     .'      .---.      '.
-    /    .-----------.    \
-   /        .-----.        \
-   |       .-.   .-.       |
-   |      /   \ /   \      |
-    \    | .-. | .-. |    /
-     '-._| | | | | | |_.-'
-         | '-' | '-' |
-          \___/ \___/
-       _.-'  /   \  `-._
-     .' _.--|     |--._ '.
-     ' _...-|     |-..._ '
-            |     |
-            '.___.'
-*/

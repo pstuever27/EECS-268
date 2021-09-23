@@ -1,3 +1,12 @@
+/** -----------------------------------------------------------------------------
+ *
+ * @file:
+ * @author Paul Stuever
+ * Assignment: EECS-268 Lab 2
+ * @brief:
+ * @date:  09/21/20201
+ *
+ ---------------------------------------------------------------------------- **/
 #include <iostream>
 #include <cmath>
 #include "rectangle.h"
@@ -17,8 +26,5 @@ std::string rectangle::shapeName() const
 {
   return "Rectangle ";
 }
-rectangle::~rectangle()
-{
-  
-}
-
+/*rectangle::~rectangle()
+{}*/
