@@ -1,0 +1,15 @@
+Weird stuff we gotta do to make a templated class
+
+    1) Add templated <typename T> to the top of the class definition.
+    2) Use the T where applicable
+    3) Any pointers/references must honor the templating
+        (e.g. Node* ---> Node<T>*)
+    4) The header file includes the .cpp file instead of the cpp file including the header file. This occurs just before the #endif
+    5) You no longer make a .o file out of templated classes 
+        (see makefile tutorial on the wiki) (No Node.h or cpp in makefile)
+    6) In the .cpp file, all scope resolution operator must honor the templating. (e.g. Node:: ---> Node<T>::)
+    7) We must put template <typename T> above every method. ugh.
+    8) When constructing a templated class object you need to put the <T> on the call to the constructor.
+
+Boardwork -------
+Implement a templated push and peek
