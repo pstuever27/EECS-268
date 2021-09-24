@@ -9,7 +9,7 @@ executive::executive(std::string argv)
 
 executive::~executive()
 {
-
+  delete{} m_action;
 }
 
 void executive::run();
