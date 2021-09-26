@@ -15,3 +15,4 @@ Queue Methods:
     peek_front - look at frontmost value
     isEmpty - is the queue is empty
 
+Boardwork: Defind the constructor and enqueue for our node-based implementation of our QueueInterface.

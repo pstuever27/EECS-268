@@ -16,7 +16,16 @@ StackOfChar::StackOfChar(const StackOfChar& orig)
 
 StackOfChar::~StackOfChar()
 {
-
+  if(m_top != nullptr)
+  {
+    m_top = nullptr;
+    delete[] m_top;
+  }
+  if(newTop != nullptr)
+  {
+    newTop = nullptr;
+    delete[] newTop;
+  }
 }
 
 void StackOfChar::operator=(const StackOfChar& rhs)
@@ -33,7 +42,9 @@ void StackOfChar::push(char entry)
 
 void StackOfChar::pop()
 {
-
+  newTop = new Node(entry);
+  newTop->getNext();
+  m_top = newTop;
 }
 
 char StackOfChar::peek() const
