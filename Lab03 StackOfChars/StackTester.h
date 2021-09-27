@@ -1,18 +1,27 @@
+#include <iostream>
+#include "Node.h"
+#include "StackOfChar.h"
+
+
 class StackTester
 {
     public:
 
     StackTester();
 
+    ~StackTester();
+
     //This will call all your test methods
     void runTests();
 
     private:
 
+    StackOfChar<char> StackTest();
+
     /**
     * @brief Creates an empty stack and verifies isEmpty() returns true
     **/
-    void test01();
+    void test01(); 
 
     /**
     * @brief Creates an empty stack pushes 1 value, verifies isEmpty() returns false
@@ -24,5 +33,9 @@ class StackTester
     **/
     void test03();
 
-    //more test methods as needed
+    /**
+     * @brief Makes empty stack, pushes a character, peeks to ensure that char is there.
+     **/ 
+    void test04();
+    
 };
