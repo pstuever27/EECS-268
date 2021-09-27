@@ -1,0 +1,29 @@
+9-27-21 Notes
+
+Queue Boardwork 1-----------
+
+Write dequeue method definition for Queue.h
+
+Queue Boardwork 2-----------
+
+Define the following function...
+    Assume we are in main.cpp (not tethered to a class)
+    Assume:
+    - 3 total tokens
+    - isNum(char)
+
+    bool isPreFix(Stack<char> tokens);
+
+                We typically write our math expressions in in-fix notation:
+                    5+3 (num, operator, number)
+
+                Prefix notation, the operator is first:
+                    +5 3 (this is dumb)
+
+Basically, find out if a stack of characters such as:
++
+5
+3
+is in prefix notation.
+
+
