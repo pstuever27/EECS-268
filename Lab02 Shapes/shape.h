@@ -18,8 +18,8 @@ class Shape
     * For double area()
     * @pre: This pure virutal method will require the individual shapes to provide their own method definitions. It also requires that there is a shape in the area for it to be called
     * @post: Afterward, this will let whatever called it (ShapeContainer) know what the area of the shape in the index is.
-    * @return: It will return a double area 
-    **/ 
+    * @return: It will return a double area
+    **/
    virtual double area() const = 0;
 
    /**
@@ -27,7 +27,7 @@ class Shape
     * @pre: This pure virtual method will require the individual shapes to provide their own method definitons. It also requires that there is a shape in the area for it to be called
     * @post: Afterward, we will get the shapeName of the shape in the index desired.
     * @return: This will return the shapeName as a string.
-    **/ 
+    **/
    virtual std::string shapeName() const = 0;
    /**
     * For ~shape()

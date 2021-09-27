@@ -3,7 +3,7 @@
  * @file: ShapeContainer.h
  * @author Paul Stuever
  * Assignment: EECS-268 Lab 2
- * @brief: Header file given in lab instructions. 
+ * @brief: Header file given in lab instructions.
  * @date:  09/21/20201
  *
  ---------------------------------------------------------------------------- **/
@@ -36,7 +36,7 @@ class ShapeContainer
     * @pre: This requires that the shape interface and the shapes themselves are correctly setup, there is a shape in the index, and that the index is in the correct range.
     * @post: Afterward, it will give us the area from the respective shape.
     * @return: The return will be the double area from the shape interface's shapes.
-    * 
+    *
     **/
    double area(int index) const; //throws a std::runtime_error if index is invalid, meaning out of range OR index has nullptr
 
@@ -49,20 +49,20 @@ class ShapeContainer
    std::string shapeName(int index) const; //throws a std::runtime_error if index is invalid, meaning out of range OR index has nullptr
    /**
     * For void add
-    * @pre: This requires that the index is in the right range, and that the index is not negative. 
+    * @pre: This requires that the index is in the right range, and that the index is not negative.
     * @post: Afterward, we will get a shape put into that index that we can later look at to get information.
     * @return: None, void
-    **/ 
+    **/
    void add(Shape* shapePtr, int index); //throws a std::runtime_error if index is invalid OR if shapePtr is nullptr
-   
+
    /**
     * For void remove
     * @pre: This requires that there is a shape in the index as well as the index is in the correct range.
     * @post: Afterward, the shape will be deleted and won't be able to be accessed.
     * @return: None, void
-    **/ 
+    **/
    void remove(int index); //throws a std::runtime_error if the index is invalid OR there is no object to delete
-   
+
    private:
    Shape** m_arrayOfShapes;
    int m_size;

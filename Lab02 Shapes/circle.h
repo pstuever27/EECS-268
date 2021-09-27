@@ -24,7 +24,7 @@ public:
      * @pre: This needs a radius to be passed in so that the member variable can be set to it.
      * @post: After, the member variable m_radius is set to the radius
      * @return: None
-     **/ 
+     **/
     circle(double radius);
 
     /**
@@ -39,8 +39,8 @@ public:
      * @pre: This requires that all the criteria for the index and pointer are met in the other files in order to be called. It also needs a shape to exist.
      * @post: Nothing much, just lets us know what shape it is.
      * @return: Returns the string of the shape name.
-     **/ 
+     **/
     virtual std::string shapeName() const;
-    
+
 };
 #endif

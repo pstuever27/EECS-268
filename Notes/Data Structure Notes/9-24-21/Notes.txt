@@ -1,0 +1,18 @@
+Queue
+
+Imagine a coffee shop:
+    People need to get in line to get served, people don't cut and the person at the front gets served. Then the line moves up
+
+This is a Queue
+    - There are two access points in the queue.
+        -front and back
+    -While stacks had one access point at the top, queues have two.
+
+Queue Methods:
+    Vocab
+    enqueue - Add to the back of a queue
+    dequeue - remove from the front of a queue
+    peek_front - look at frontmost value
+    isEmpty - is the queue is empty
+
+Boardwork: Defind the constructor and enqueue for our node-based implementation of our QueueInterface.

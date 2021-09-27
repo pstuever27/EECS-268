@@ -4,7 +4,7 @@
  * @author Paul Stuever
  * Assignment: EECS-268 Lab 2
  * @brief: This file will initialize m_arrayOfShapes to another shape pointer with size [m_size] and will set the m_size to the passed in size beforehand.
-            Then, it has the different operations needed for the function (area, add, delete, and shapename) and will 
+            Then, it has the different operations needed for the function (area, add, delete, and shapename) and will
  * @date:  09/21/20201
  *
  ---------------------------------------------------------------------------- **/

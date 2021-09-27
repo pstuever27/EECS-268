@@ -1,9 +1,9 @@
 /** -----------------------------------------------------------------------------
  *
- * @file: circle.cpp
+ * @file:
  * @author Paul Stuever
  * Assignment: EECS-268 Lab 2
- * @brief: Used to calculate the area and return the shape name for the function
+ * @brief:
  * @date:  09/21/20201
  *
  ---------------------------------------------------------------------------- **/
@@ -25,4 +25,5 @@ std::string circle::shapeName() const
 {
   return "Circle ";
 }
-
+/*circle::~circle()
+{}*/

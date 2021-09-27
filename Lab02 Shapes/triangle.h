@@ -22,7 +22,7 @@ public:
      * @pre: This requires a base and a height to be passed in from the calling function.
      * @post: It will set the member variables m_base and m_height to their respective values for later use.
      * @return: None, constructor.
-     **/ 
+     **/
     triangle(double base, double height);
 
     /**
@@ -38,9 +38,9 @@ public:
      * @pre: This requires that all the criteria for the index and pointer are met in the other files in order to be called. It also needs a shape to exist.
      * @post: Nothing much, just lets us know what shape it is.
      * @return: Returns the string of the shape name.
-     **/ 
+     **/
     virtual std::string shapeName() const;
- 
+
 
 private:
     double m_base;
