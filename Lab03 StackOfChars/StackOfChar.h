@@ -11,7 +11,7 @@ class StackOfChar : public StackInterface<char>
 	private:
 	Node* m_top;
 	Node* newTop;
-
+       
 	public:
 
 	StackOfChar();

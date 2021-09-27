@@ -5,6 +5,14 @@
 StackTester::StackTester()
 {}
 
+void StackTester::runTests()
+{
+    test01();
+    test02();
+    test03();
+    test04();
+}
+
 void test01()
 {
     StackTest = new StackOfChar<char>();

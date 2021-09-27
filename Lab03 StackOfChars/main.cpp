@@ -4,11 +4,11 @@
 #include "executive.h"
 
 
-int main(int argc, char** argv)
+int main(int argc, char* argv[])
 {
   if(argc > 0)
   {
-  executive begin(argv);
+  executive begin(argv[1]);
   begin.run();
   }
   else{

@@ -9,7 +9,7 @@ Parser::Parser()
 //"Loaded gun" technique - Take in one char. If the char is '{', then add it to the stack, if the next one is '}', then pop the '{' off the stack.
     //Finally, check after the char array is empty to see if the stack is empty.
 
-void Parser::runParse();
+void Parser::runParse()
 {
     Stack = new StackOfChar<char>();
     std::string entry;

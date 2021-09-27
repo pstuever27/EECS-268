@@ -16,7 +16,7 @@ class StackTester
 
     private:
 
-    StackOfChar<char> StackTest();
+    StackOfChar* StackTest();
 
     /**
     * @brief Creates an empty stack and verifies isEmpty() returns true
