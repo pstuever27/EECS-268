@@ -2,6 +2,3 @@ make.exe --dry-run --keep-going --print-directory
 '"make.exe"' is not recognized as an internal or external command,
 operable program or batch file.
  
-'"make.exe"' is not recognized as an internal or external command,
-operable program or batch file.
- 
