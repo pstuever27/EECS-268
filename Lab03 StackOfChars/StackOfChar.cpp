@@ -12,7 +12,8 @@ StackOfChar::StackOfChar()
 
 StackOfChar::StackOfChar(const StackOfChar& orig)
 {
-  m_top = orig.peek();
+  
+  m_top->getEntry();
 }
 
 
@@ -36,28 +37,41 @@ void StackOfChar::operator=(const StackOfChar& rhs)
 
 }
 
-
 void StackOfChar::push(char entry)
 {
   newTop = new Node(entry);
   newTop->setNext(m_top);
   m_top = newTop;
+  newTop = nullptr;
+  delete newTop;
 }
 
 
 void StackOfChar::pop()
 {
-  newTop = new Node();
-  newTop->getNext();
-  m_top = newTop;
+  if(m_top == nullptr)
+  {
+  throw(std::runtime_error("Stack Empty")); //Stack Empty if true
+  }else
+  {
+    newTop = m_top;
+    m_top = newTop->getNext();
+    delete newTop;
+  }
+  
+ 
 }
-
 
 char StackOfChar::peek() const
 {
-  return m_top;
+  if(m_top == nullptr)
+  {
+    throw(std::runtime_error("Stack Empty"));  //Stack empty if true
+  }else
+  {
+  return (m_top->getEntry());
+  }
 }
-
 
 bool StackOfChar::isEmpty() const
 {

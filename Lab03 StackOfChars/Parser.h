@@ -13,7 +13,7 @@ public:
 private:
 
 int m_length;
-StackOfChar* Stack();
+StackOfChar* Stack;
 
 };
 #endif

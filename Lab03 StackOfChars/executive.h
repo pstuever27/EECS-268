@@ -3,8 +3,6 @@
 #define EXECUTIVE_H
 #include <iostream>
 #include "Node.h"
-#include "Parser.h"
-#include "StackTester.h"
 #include <iostream>
 #include <string>
 

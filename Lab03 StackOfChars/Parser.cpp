@@ -11,10 +11,10 @@ Parser::Parser()
 
 void Parser::runParse()
 {
-    Stack = new StackOfChar<char>();
+    Stack = new StackOfChar();
     std::string entry;
-    int bracket_checker = 0;
-    int par_checker = 0;
+    bool flag;
+  
     std::cout << "Please type your entry: ";
     std::cin >> entry;
 
@@ -32,36 +32,70 @@ void Parser::runParse()
         {
             if(charsArr[i] == '{')
             {
-                stack.push(charsArr[i]);
-                bracket_checker++;
+                if(Stack->isEmpty())
+                {
+                    flag = false;
+                }
+                 Stack->push(charsArr[i]);
             }
             else if(charsArr[i] == '(')
-            {
-                stack.push(charsArr[i]);
-                par_checker++;
+            {   
+                if(Stack->isEmpty())
+                {
+                    flag = false;
+                    
+                }
+                Stack->push(charsArr[i]);
             }
             else if(charsArr[i] == '}')
             {
-                stack.pop();
-                bracket_checker--;
+                try
+                {
+                    Stack->pop();
+                    flag = Stack->isEmpty();
+                }
+                catch(std::exception& e)
+                {
+                    std::cout << "Your sequence is not balanced\n";
+                    Stack = nullptr;
+                    delete Stack;
+                    break;
+                }
             }
             else if(charsArr[i] == ')')
             {
-                stack.pop();
-                par_checker--;
-            }
+                try
+                {
+                    Stack->pop();
+                    flag = Stack->isEmpty();
+                }
+                catch(std::exception& e)
+                {
+                    std::cout << "Your sequence is not balanced\n";
+                    Stack = nullptr;
+                    delete Stack;
+                    break;
+                }
+                
+            } 
         }
-        if(par_checker == 0 && bracket_checker == 0)
-        {
-            std::cout << "Your sequence is balanced.\n";
-        }
-        if(par_checker != 0 && bracket_checker != 0 )
-        {
-            std::cout << "Your sequence is not balanced\n";
-        }  
+    if(flag)
+    {
+        std::cout << "Your sequence is balanced\n";
+        Stack = nullptr;
+        delete Stack;
+    }
+    if(!flag)
+    {
+        std::cout << "Your sequence is not balanced\n";
+        
+    }
+    
+        
 }
 
 Parser::~Parser()
 {
+    Stack = nullptr;
     delete[] Stack;
 }

@@ -1,5 +1,5 @@
 Exercise1: main.o executive.o Node.o StackOfChar.o StackTester.o Parser.o
-		g++ -std=c++11 -g -Wall main.o executive.o Node.o StackOfChar.o StackTester.o Parser.o 
+		g++ -std=c++11 -g -Wall main.o executive.o Node.o StackOfChar.o StackTester.o Parser.o -o Exercise1
 main.o: main.cpp executive.h
 		g++ -std=c++11 -g -Wall -c main.cpp
 executive.o: executive.h Node.o StackTester.h Parser.h

@@ -1,18 +1,19 @@
 //Done
 #include "executive.h"
 #include "Node.h"
+#include "StackTester.h"
+#include "Parser.h"
 
 #include <iostream>
 #include <string>
 
 executive::executive(std::string argv)
 {
-
+  m_action = argv;
 }
 
 executive::~executive()
 {
-  
 }
 
 void executive::run()

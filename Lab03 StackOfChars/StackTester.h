@@ -1,3 +1,6 @@
+#ifndef STACKTESTER_H
+#define STACKTESTER_H
+
 #include <iostream>
 #include "Node.h"
 #include "StackOfChar.h"
@@ -16,7 +19,7 @@ class StackTester
 
     private:
 
-    StackOfChar* StackTest();
+    StackOfChar* StackTest;
 
     /**
     * @brief Creates an empty stack and verifies isEmpty() returns true
@@ -39,3 +42,4 @@ class StackTester
     void test04();
     
 };
+#endif
