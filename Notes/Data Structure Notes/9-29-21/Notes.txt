@@ -1,0 +1,14 @@
+Lists
+    -You are allowed to insert, remove, look at values anywhere in the Lists
+    -No notion of FIFO or LIFO
+    -All adds to a list come in the form of an insert at an index
+        -Yes, you can insert on an empty list
+        -The index you choose is the index the new value will sit at
+    -When we remove, we pick an index to remove
+    -When we get an entry we also get it from a particular index
+    -Lists do track their own length
+
+How we build it
+    -Node-based implementation (called a LinkedList)
+        -Will have a bunch of nodes pointing down the list until it reaches nullptr
+        -m_front will be the front of the list.
