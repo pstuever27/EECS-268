@@ -13,6 +13,8 @@ void StackTester::runTests()
     test02();
     test03();
     test04();
+    test05();
+    test06();
 }
 
 void StackTester::test01()
@@ -95,6 +97,51 @@ void StackTester::test04()
     delete StackTest;
 }
 
-StackTester::~StackTester()
+void StackTester::test05()
 {
+    StackTest = new StackOfChar();
+    bool empty;
+    empty = StackTest->isEmpty();
+    if(empty)
+    {
+        try
+        {
+            StackTest->pop();
+        }
+        catch(std::exception& e)
+        {
+            empty = false;
+            std::cout << "Attempting to pop empty stack returns an error: PASSED\n";
+        }  
+    }else if(!empty)
+    {
+        std::cout << "Attempting to pop empty stack returns an error: FAILED\n";
+    }
+    delete StackTest;  
 }
+
+void StackTester::test06()
+{
+    StackTest = new StackOfChar();
+    bool empty;
+    empty = StackTest->isEmpty();
+    if(empty)
+    {
+        try
+        {
+            StackTest->peek();
+        }
+        catch(std::exception& e)
+        {
+            empty = false;
+            std::cout << "Attempting to peek empty stack returns an error: PASSED\n";
+        }  
+    }else if(!empty)
+    {
+        std::cout << "Attempting to peek empty stack returns an error: FAILED\n";
+    }
+    delete StackTest; 
+
+}
+StackTester::~StackTester()
+{}

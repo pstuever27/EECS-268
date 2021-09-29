@@ -40,6 +40,16 @@ class StackTester
      * @brief Makes empty stack, pushes a character, peeks to ensure that char is there.
      **/ 
     void test04();
+
+    /**
+     * @brief Makes a stack, verifies it's empty, attempts to pop, and should return a runtime error. 
+     **/ 
+    void test05();
+
+    /**
+     * @brief Makes a stack, verifies it's empty, peeks, and verifies there is a runtime error.
+     **/ 
+    void test06();
     
 };
 #endif

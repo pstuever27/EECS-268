@@ -4,6 +4,7 @@
 
 Parser::Parser()
 {
+    Stack = nullptr;
     m_length = 0;
 }
 //"Loaded gun" technique - Take in one char. If the char is '{', then add it to the stack, if the next one is '}', then pop the '{' off the stack.
@@ -14,6 +15,7 @@ void Parser::runParse()
     Stack = new StackOfChar();
     std::string entry;
     bool flag;
+    bool breaker = false;
   
     std::cout << "Please type your entry: ";
     std::cin >> entry;
@@ -36,14 +38,19 @@ void Parser::runParse()
                 {
                     flag = false;
                 }
-                 Stack->push(charsArr[i]);
+                else{
+                 flag = true;
+                }
+                Stack->push(charsArr[i]);
             }
             else if(charsArr[i] == '(')
             {   
                 if(Stack->isEmpty())
                 {
                     flag = false;
-                    
+                }else
+                {
+                flag = true;
                 }
                 Stack->push(charsArr[i]);
             }
@@ -59,6 +66,7 @@ void Parser::runParse()
                     std::cout << "Your sequence is not balanced\n";
                     Stack = nullptr;
                     delete Stack;
+                    breaker = true;
                     break;
                 }
             }
@@ -74,23 +82,24 @@ void Parser::runParse()
                     std::cout << "Your sequence is not balanced\n";
                     Stack = nullptr;
                     delete Stack;
+                    breaker = true;
                     break;
                 }
                 
             } 
         }
-    if(flag)
+    if(flag && !breaker)
     {
         std::cout << "Your sequence is balanced\n";
         Stack = nullptr;
         delete Stack;
     }
-    if(!flag)
+    if(!flag && !breaker)
     {
         std::cout << "Your sequence is not balanced\n";
-        
+        Stack = nullptr;
+        delete Stack;
     }
-    
         
 }
 

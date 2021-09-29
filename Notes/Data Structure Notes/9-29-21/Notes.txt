@@ -8,7 +8,19 @@ Lists
     -When we get an entry we also get it from a particular index
     -Lists do track their own length
 
-How we build it
+How we build it----------------------------------------------------------------------
     -Node-based implementation (called a LinkedList)
         -Will have a bunch of nodes pointing down the list until it reaches nullptr
         -m_front will be the front of the list.
+            -The front is the entry point for all linked list operations.
+            -m_front will stay at the front for the whole time
+        -jumper will jump to each index to go down the list   
+            -We start it out at the front: 
+                -Node<T>* jumper = m_front
+            -Then, to get it to the next node, we do this:
+                -jumper = jumper->getNext();
+                -We can repeat this to go down the list
+            -This is how we traverse the list
+
+Boardwork -------------
+Implement LinkedList.h with LinkedList.cpp

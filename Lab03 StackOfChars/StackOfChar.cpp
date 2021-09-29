@@ -12,7 +12,6 @@ StackOfChar::StackOfChar()
 
 StackOfChar::StackOfChar(const StackOfChar& orig)
 {
-  
   m_top->getEntry();
 }
 
