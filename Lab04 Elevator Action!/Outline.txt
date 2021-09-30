@@ -1,0 +1,22 @@
+Ground Floor:
+
+-first in first out to get into elevator
+-Queue structure
+-no limit
+
+Elevator Rule:
+
+-First in last out for get out of the Elevator
+-Stack structure
+-Limit of 7 people
+
+
+--The file will tell us what to do
+
+
+Executive.cpp--
+
+-reading from the file
+-Create the obj of stack and Queue
+-use commands from filename
+- it will call the function of stack and queue
