@@ -1,3 +1,12 @@
+/** -----------------------------------------------------------------------------
+ *
+ * @file: StackOfChar.h
+ * @author Paul Stuever
+ * Assignment: EECS-268 Lab 2
+ * @brief: Header file for StackOfChar.cpp (note: not templated)
+ * @date:  09/29/2021
+ *
+ ---------------------------------------------------------------------------- **/
 #ifndef STACKOFCHAR_H
 #define STACKOFCHAR_H
 
@@ -13,11 +22,25 @@ class StackOfChar : public StackInterface<char>
 	Node* newTop;
        
 	public:
-
+       /** 
+       * @pre none
+       * @post Afterward, we will get m_top and m_newtop set to nullptr
+       * @param none
+       * @throw none
+       **/
 	StackOfChar();
 
+       /** 
+       * @pre This needs the original top of the stack to be passed in
+       * @post Afterward, it will set the first value of the stack to m_top so that there are no issues
+       * @param orig, the first entry in the stack
+       * @throw none
+       **/
 	StackOfChar(const StackOfChar& orig);
 
+       /**
+        * @brief Deconstructor for StackOfChar, deletes m_top and newTop
+        */ 
         ~StackOfChar();
 
 	void operator=(const StackOfChar& rhs);
@@ -38,7 +61,20 @@ class StackOfChar : public StackInterface<char>
        **/
 	void pop();
 
+       /** 
+       * @pre Needs an entry in the stack
+       * @post Gives us the top entry in the stack
+       * @param none
+       * @throw std::runtime_error if peek attempted on empty stack
+       **/
 	char peek() const; //should peek throw an exception?
+
+       /** 
+       * @pre Needs empty stack to return true
+       * @post Lets us know if it's empty
+       * @param none
+       * @throw none
+       **/
 	bool isEmpty() const;
 
 };

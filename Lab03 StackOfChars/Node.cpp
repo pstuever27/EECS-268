@@ -1,4 +1,12 @@
-//should be done
+/** -----------------------------------------------------------------------------
+ *
+ * @file: Node.cpp      
+ * @author Paul Stuever
+ * Assignment: EECS-268 Lab 2
+ * @brief: Node class that will be used to get and set the entries in the stack.
+ * @date:  09/29/2021
+ *
+ ---------------------------------------------------------------------------- **/
 #include <iostream>
 #include "Node.h"
 Node::Node(char entry)

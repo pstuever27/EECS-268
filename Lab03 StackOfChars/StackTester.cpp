@@ -1,3 +1,12 @@
+/** -----------------------------------------------------------------------------
+ *
+ * @file: StackTester.cpp
+ * @author Paul Stuever
+ * Assignment: EECS-268 Lab 2
+ * @brief: This file will run 6 tests to see if the stack is working properly
+ * @date:  09/29/2021
+ *
+ ---------------------------------------------------------------------------- **/
 #include "StackTester.h"
 #include <iostream>
 #include <string>

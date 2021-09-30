@@ -1,3 +1,12 @@
+/** -----------------------------------------------------------------------------
+ *
+ * @file: Parser.cpp
+ * @author Paul Stuever
+ * Assignment: EECS-268 Lab 2
+ * @brief: This class will be used to actually preform the function by taking in a string of '{}' and "()"and telling us if it is balanced 
+ * @date:  09/29/2021
+ *
+ ---------------------------------------------------------------------------- **/
 #include "Parser.h"
 #include <iostream>
 #include <string>

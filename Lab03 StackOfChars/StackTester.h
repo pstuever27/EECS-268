@@ -1,3 +1,12 @@
+/** -----------------------------------------------------------------------------
+ *
+ * @file: StackTester.h
+ * @author Paul Stuever
+ * Assignment: EECS-268 Lab 2
+ * @brief: Header file for StackTester.cpp
+ * @date:  09/29/2021
+ *
+ ---------------------------------------------------------------------------- **/
 #ifndef STACKTESTER_H
 #define STACKTESTER_H
 
@@ -10,8 +19,19 @@ class StackTester
 {
     public:
 
+    /** 
+  * @pre Needs the user to select -t
+  * @post Will make StackTest equal nullptr
+  * @param none
+  * @throw none
+  **/
     StackTester();
-
+    /** 
+     * @pre The function must be done
+     * @post Will delete StackTest
+     * @param none
+     * @throw none
+     **/
     ~StackTester();
 
     //This will call all your test methods

@@ -1,4 +1,12 @@
-//Done
+/** -----------------------------------------------------------------------------
+ *
+ * @file: executive.cpp
+ * @author Paul Stuever
+ * Assignment: EECS-268 Lab 2
+ * @brief: Takes in the action and decides whether parser or tester will start
+ * @date:  09/29/2021
+ *
+ ---------------------------------------------------------------------------- **/
 #include "executive.h"
 #include "Node.h"
 #include "StackTester.h"

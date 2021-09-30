@@ -1,3 +1,12 @@
+/** -----------------------------------------------------------------------------
+ *
+ * @file: StackOfChar.cpp
+ * @author Paul Stuever
+ * Assignment: EECS-268 Lab 2
+ * @brief: This class will handle the push, pop, peek, and isEmpty methods that will be used to make and handle the stack.
+ * @date:  09/29/2021
+ *
+ ---------------------------------------------------------------------------- **/
 #include <iostream>
 #include <string>
 #include "StackOfChar.h"
@@ -32,9 +41,7 @@ StackOfChar::~StackOfChar()
 
 
 void StackOfChar::operator=(const StackOfChar& rhs)
-{
-
-}
+{}
 
 void StackOfChar::push(char entry)
 {
