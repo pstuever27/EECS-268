@@ -1,0 +1,28 @@
+Notes
+
+//assume we are in main
+//assume we have this linked list created
+
+myList.insert(2, 'Z')
+
+If we want to insert a new node into the list, we have to do some magic
+    -we need m_front to point to the front 
+    -we need a pointer to the target index we want
+    -we need a newNode that will be inserted to the list just before the target
+    -and we need a pointer to the node just before the target
+
+To do this, we write
+    -newNode->setNext(target); 
+    -increase the length by 1
+
+Where can we put stuff?
+    -Insert at the front of the list
+        -We insert at index 0
+        -Set m_front to the newNode
+    -Inserting at the end is what we outlined above
+    -Inserting at the end   
+        -index is the length
+    -Range of indices goes from 0 to length (inclusive)
+
+Boardwork------------------------------
+Define void insert(int index, T entry); for our linked list.
