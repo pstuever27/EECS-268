@@ -5,7 +5,7 @@
 #include "QueueInterface.h"
 
 template <typename T>
-class Queue : public QueueInterface
+class Queue : public QueueInterface<T>
 {
  private:
     Node<T>* m_front;

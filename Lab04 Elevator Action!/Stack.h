@@ -5,7 +5,7 @@
 #include "StackInterface.h"
 
 template <typename T>
-class Stack : public StackInterface
+class Stack : public StackInterface<T>
 {
 	private:
 	Node<T>* m_top;
@@ -68,4 +68,5 @@ class Stack : public StackInterface
 	bool isEmpty() const;
 
 };
+#include "Stack.cpp"
 #endif
