@@ -1,0 +1,31 @@
+Schedule:
+    -This friday, lecture will be prerecorded
+    -Next week, fall break!
+    -No class monday tuesday or labs next week
+    -Lab 5 will be a two week lab
+    -Wednesday Oct 13th we review for Midterm
+    -Friday Oct 15th we take Midterm in class 
+
+Notes:
+Removing from linked lists
+    -We have m_front, jumper, and oneBefore
+    -Now we need oneAfter
+    -We need to have the oneBefore pointer use setNext(oneAfter)
+    -Now the length is reduced by one
+
+    -If we get rid of the front pointer 
+        -We have m_front get set to the second node, then have jumper delete the node.
+
+    -When we insert, we insert from 0 up to and including the length
+    -When we remove, we can only remove from 0 to length-1.
+
+Boardwork -----
+    -Write List<T>::remove(int index)
+
+Food for thought:
+
+template <typename T>
+void eraseAfter(ListInterface<T>& list, int index)
+{
+    //Goal: Delete everything in a list after a given index.
+}
