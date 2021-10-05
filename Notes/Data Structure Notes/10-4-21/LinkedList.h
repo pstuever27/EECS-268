@@ -14,5 +14,6 @@ public:
     LinkedList();
     virtual T getEntry(int index) const;
     virtual void insert(int index, T entry);
+    virtual void remove(int index);
 };
 #endif
