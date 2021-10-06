@@ -13,7 +13,7 @@
 #include <stdexcept>
 
 template <typename T>
-class StackInterface
+class StackInterface<T>
 {
 	public:
 
@@ -24,8 +24,7 @@ class StackInterface
 	virtual void pop() = 0;
 	virtual T peek() const = 0;
 	virtual bool isEmpty() const = 0;
-  virtual ~StackInterface() {} //virtual destructor
+    virtual ~StackInterface() {} //virtual destructor
 
 };
-
 #endif
