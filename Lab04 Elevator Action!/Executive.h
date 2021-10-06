@@ -2,8 +2,9 @@
 #define EXECUTIVE_H
 #include "Stack.h"
 #include "Queue.h"
+#include <string>
 
-class Executive{
+class Executive{ 
 
 public:
 

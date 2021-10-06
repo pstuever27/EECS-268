@@ -1,51 +1,50 @@
 #include <iostream>
 #include <string>
-#include "Stack.h"
 
 template<typename T>
-Stack::Stack()
+Stack<T>::Stack()
 {
   m_top = nullptr;
   newTop = nullptr;
 }
 
 template<typename T>
-Stack::Stack(const Stack& orig)
+Stack<T>::Stack(const Stack& orig)
 {
   m_top->getEntry();
 }
 
 template<typename T>
-Stack::~Stack()
+Stack<T>::~Stack()
 {
   if(m_top != nullptr)
   {
     m_top = nullptr;
-    delete[] m_top;
   }
+  delete[] m_top;
   if(newTop != nullptr)
   {
     newTop = nullptr;
-    delete[] newTop;
   }
+  delete[] newTop;
+
 }
 
 template<typename T>
-void Stack::operator=(const Stack& rhs)
+void Stack<T>::operator=(const Stack& rhs)
 {}
 
 template<typename T>
-void Stack::push(T entry)
+void Stack<T>::push(T entry)
 {
-  newTop = new Node(entry);
+  newTop = new Node<T>(entry);
   newTop->setNext(m_top);
   m_top = newTop;
-  newTop = nullptr;
   delete newTop;
 }
 
 template<typename T>
-void Stack::pop()
+void Stack<T>::pop()
 {
   if(m_top == nullptr)
   {
@@ -54,14 +53,12 @@ void Stack::pop()
   {
     newTop = m_top;
     m_top = newTop->getNext();
-    delete newTop;
+    newTop = nullptr;
   }
-
-
 }
 
 template<typename T>
-char Stack::peek() const
+T Stack<T>::peek() const
 {
   if(m_top == nullptr)
   {
@@ -73,7 +70,7 @@ char Stack::peek() const
 }
 
 template<typename T>
-bool Stack::isEmpty() const
+bool Stack<T>::isEmpty() const
 {
   return(m_top == nullptr);
 }

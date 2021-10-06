@@ -7,8 +7,8 @@
  * @date:  09/29/2021
  *
  ---------------------------------------------------------------------------- **/
-#ifndef STACK_H
-#define STACK_H
+#ifndef STACKINTERFACE_H
+#define STACKINTERFACE_H
 
 #include <stdexcept>
 

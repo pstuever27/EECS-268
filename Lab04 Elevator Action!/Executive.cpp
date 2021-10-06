@@ -1,17 +1,26 @@
 #include "Executive.h"
 #include <iostream>
 #include <fstream>
+#include <string>
 
 Executive::Executive(std::string argv)
 {
   Elevator = nullptr;
   Line = nullptr;
-  argv = m_fileName;
+  m_fileName = argv;
 }
 Executive::~Executive()
 {
-  delete Elevator;
-  delete Line;
+  if(Elevator != nullptr)
+  {
+    Elevator = nullptr;
+  }
+  if(Line != nullptr)
+  {
+    Line = nullptr;
+  }
+  delete[] Elevator;
+  delete[] Line;
 }
 void Executive::run()
 {
@@ -19,72 +28,84 @@ void Executive::run()
   inFile.open(m_fileName);
   std::string action;
   std::string name;
+  int dropoffs;
+  int counter = 0;
+  Elevator = new Stack<std::string>();
+  Line = new Queue<std::string>();
 
   if(inFile.is_open())
   {
+
     while(inFile >> action)
     {
-      inFile >> name;
+    
       if(action == "WAIT")
       {
-        Line = Line->enqueue(name);
+        inFile >> name;
+        Line->enqueue(name);
+
       }
-      else if(action == "PICK_UP")
+      if(action == "PICK_UP")
       {
-        int i = 0;
-        while(i<7)
+        
+        while(counter < 7 && !Line->isEmpty())
         {
-          try
-          {
-            Elevator = Line->peekFront();
-            Line = Line->dequeue();
-            i++;
-          }
-          catch(std::exception& e)
-          {
-            break;
-          }
+            Elevator->push(Line->peekFront());
+            Line->dequeue();
+            counter++;
         }
+        
       }
-      else if(action == "DROP_OFF")
+   
+      if(action == "DROP_OFF")
       {
-        int i = 0;
-        while(i<7)
+        inFile >> dropoffs;
+        int j = 0;
+        while(j<dropoffs)
         {
           try
           {
-            Elevator = Elevator->pop();
+            Elevator->pop();
           }
           catch(const std::exception& e)
           {
-            break;
           }
+          j++;
         }
+        counter = 0;
       }
-      else if(action == "INSPECTION")
+      if(action == "INSPECTION")
       {
         bool empty;
         std::string elevator_next;
         std::string Line_next;
         empty = Elevator->isEmpty();
-        
-      
-        elevator_next = Elevator->peek();
-        Line_next = Line->peekFront();
 
-          if(empty)
-          {
-            std::cout << "The elevator is empty\n";
-          }
-          else
-          {
-            std::cout << "The elevator is not empty\n";
-            std::cout << elevator_next << " is the next person to get off the elevator\n";
-          }
-        
+        try
+        {
+        elevator_next = Elevator->peek();
+        }
+        catch(const std::exception& e)
+        {
+          std::cout << "The elevator is empty\n";
+        }
+        if(!empty)
+        {
+          std::cout << "The elevator is not empty\n";
+          std::cout << elevator_next << " is the next person to get off the elevator\n";
+        }
+        try{
+        Line_next = Line->peekFront();
         std::cout << Line_next << " is the next person to get on the elevator\n";
+        }
+        catch(const std::exception& e)
+        {
+          std::cout << "Queue is empty\n";
+        }
       }
     }
+    delete Line;
+    delete Elevator;
   }
   else
   {
