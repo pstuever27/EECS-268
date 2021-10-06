@@ -1,0 +1,32 @@
+Boardwork--------------------
+Assume you are in main.cpp, define the following function that is NOT scoped to any class.
+
+It will return a pointer to ListInterface and will return the intersection of two lists
+    
+    template <typename T>
+    ListInterface<T>* intersection(ListInterface<T>& listA, ListInterface<T>& listB)
+    {
+        //Assume that each contains unique value(in other words, no repeats)
+        //Create a nwe LinkedList that will contain the intersection of the two lists.
+    }
+
+Food for thought:
+    -Is there a way to make this boardwork more optimized?
+        -Insert the new values of the intersection list to the front, because if you go to the back you have
+            to jump across the entire list.
+    
+    -Virtual destructor
+        -Example, the ListInterface contains:
+            -virtual ~ListInterface(){} //No = 0
+                    //Empty destructor: a destructor that does nothing. Different from = 0.
+        int main()
+        {
+            ListInterface<char>* intersectPtr = nullptr;
+            LinkedList<char> listA;
+            LinkedList<char> listB;
+            //fill those lists up.
+
+            intersectPtr = intersect(listA, listB); //allocates a linkedlist 
+
+            delete intersectPtr; //I need the destructor of the interface to be virtual so that I can run the linkedlist destructor.
+        }
