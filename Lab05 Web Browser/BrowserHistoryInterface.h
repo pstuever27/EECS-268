@@ -45,6 +45,6 @@ class BrowserHistoryInterface
   * @post The current browser history is copied into the given list
   * @param destination, an empty list of strings
   */
-  virtual void copyCurrentHistory(ListInterface<string>& destination) = 0;
+  virtual void copyCurrentHistory(ListInterface<std::string>& destination) = 0;
 };
 #endif

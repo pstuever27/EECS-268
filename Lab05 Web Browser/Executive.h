@@ -2,7 +2,7 @@
 #define EXECUTIVE_H
 
 #include <iostream>
-#include "BrowserHistoryInterface.h"
+#include "BrowserHistory.h"
 
 class Executive
 {
@@ -12,5 +12,6 @@ class Executive
     void run();
   private:
     std::string m_fileName;
-    BrowserHistory History;
+    BrowserHistory* History;
 };
+#endif

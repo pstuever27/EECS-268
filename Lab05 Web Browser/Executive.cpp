@@ -1,4 +1,5 @@
 #include "Executive.h"
+#include "BrowserHistory.h"
 #include <iostream>
 #include <fstream>
 
@@ -13,7 +14,7 @@ Executive::~Executive()
 
 void Executive::run()
 {
-  fstream inFile;
+  std::fstream inFile;
   std::string function;
   std::string website;
   inFile.open(m_fileName);

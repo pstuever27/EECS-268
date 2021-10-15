@@ -1,7 +1,9 @@
+#include "BrowserHistory.cpp"
+
 BrowserHistory::BrowserHistory()
 {
     Record = new LinkedList();
-    current = 0;
+    m_current = 0;
 }
 
 BrowserHistory::~BrowserHistory()
@@ -13,13 +15,13 @@ BrowserHistory::~BrowserHistory()
 void navigateTo(std::string url)
 {
     int length = Record->length();
-    if(current == length)
+    if(m_current == length)
     {
         Record->setEntry(length, url);
     }
     else
     {
-        while(length>current)
+        while(length>m_current)
         {
             Record->remove(length);
             length--;
@@ -31,27 +33,27 @@ void navigateTo(std::string url)
 void forward()
 {
     int length = Record->length();
-    if(current == length)
+    if(m_current == length)
     {
         throw(std::runtime_error("Can't go forward anymore!"));
     }
 
-    current++;
+    m_current++;
 }
 
 void back()
 {
-    if(current == 0)
+    if(m_current == 0)
     {
         throw(std::runtime_error("Can't go back anymore!"))
     }
 
-    current--;
+    m_current--;
 }
 
 std::string current() const
 {
-    return(Record->getEntry(current));
+    return(Record->getEntry(m_current));
 }
 
 void BrowserHistory::copyCurrentHistory(ListInterface<string>& destination)
