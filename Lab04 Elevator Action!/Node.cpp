@@ -3,7 +3,7 @@
  * @file: Node.cpp
  * @author Paul Stuever
  * Assignment: EECS-268 Lab 4
- * @brief: Node class that will be used to get and set the entries in the stack.
+ * @brief: Node class that will be used to get and set the entries in the stack and queue.
  * @date:  09/29/2021
  *
  ---------------------------------------------------------------------------- **/
