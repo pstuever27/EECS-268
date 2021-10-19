@@ -6,7 +6,7 @@
 Executive::Executive(std::string argv)
 {
   m_fileName = argv;
-  History = new BrowserHistory();
+  History = nullptr;
 }
 
 Executive::~Executive()
@@ -14,6 +14,7 @@ Executive::~Executive()
 
 void Executive::run()
 {
+  History = new BrowserHistory();
   std::fstream inFile;
   std::string function;
   std::string website;

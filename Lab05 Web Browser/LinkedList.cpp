@@ -8,7 +8,7 @@ LinkedList<T>::LinkedList()
 }
 
 template <typename T>
-LinkedList<T>::getEntry(int index) const
+T LinkedList<T>::getEntry(int index) const
 {
   if(index < m_length && index > 0)
   {
@@ -65,7 +65,7 @@ void LinkedList<T>::insert(int index, T entry)
     }
 
     oneBefore->setNext(newNode);
-    newnode->setNext(jumper);
+    newNode->setNext(jumper);
   }
 }
 
@@ -95,7 +95,7 @@ void LinkedList<T>::remove(int index)
         target = target->getNext();
       }
       oneBefore->setNext(target->getNext());
-      delete target
+      delete target;
       oneBefore = nullptr;
       m_length--;
   }
@@ -114,6 +114,7 @@ void LinkedList<T>::clear()
   }
 }
 
+template <typename T>
 T LinkedList<T>::getEntry(int index) const
 {
   if(index > m_length || index < 0)
@@ -131,6 +132,7 @@ T LinkedList<T>::getEntry(int index) const
   }
 }
 
+template <typename T>
 void LinkedList<T>::setEntry(int index, T entry)
 {
   if(index > m_length || index < 0)
@@ -149,6 +151,7 @@ void LinkedList<T>::setEntry(int index, T entry)
   target = nullptr;
 }
 
+template <typename T>
 int LinkedList<T>::length() const
 {
   return(m_length);
