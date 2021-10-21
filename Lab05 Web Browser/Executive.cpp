@@ -1,6 +1,6 @@
 #include "Executive.h"
 #include "BrowserHistory.h"
-#include "List.h"
+#include "LinkedList.h"
 #include <iostream>
 #include <fstream>
 
@@ -13,7 +13,13 @@ Executive::Executive(std::string argv)
 }
 
 Executive::~Executive()
-{}
+{
+  if(History != nullptr)
+  {
+    History = nullptr;
+  }
+  delete History;
+}
 
 void Executive::run()
 {
@@ -24,39 +30,45 @@ void Executive::run()
   inFile.open(m_fileName);
   if(inFile.is_open())
   {
-    inFile >> function;
+    while(inFile >> function)
+    {
 
-    if(function == "NAVIGATE")
-    {
-      inFile >> website;
-      History->navigateTo(website);
-    }
+      if(function == "NAVIGATE")
+      {
+        inFile >> website;
+        History->navigateTo(website);
+      }
 
-    else if(function == "HISTORY")
-    {
-      std::string currentSite;
-      ListInterface<std::string>* copy = new List<std::string>();
-      currentSite = History->current();
-      std::cout << "==Oldest==";
-      //for loop here?
-    }
-    else if(function == "FORWARD")
-    {
-      try
+      else if(function == "HISTORY")
       {
-        History->forward();
+        std::string currentSite;
+        ListInterface<std::string>* copy = new LinkedList<std::string>();
+        currentSite = History->current();
+        std::cout << "==Oldest==";
+        //for loop here?
+        delete copy;
       }
-      catch(std::exception& e)
-      {}
-    }
-    else if(function == "BACK")
-    {
-      try
+      else if(function == "FORWARD")
       {
-        History->back();
+        try
+        {
+          History->forward();
+        }
+        catch(std::exception& e)
+        {}
       }
-      catch(const std::exception& e)
-      {}
+      else if(function == "BACK")
+      {
+        try
+        {
+          History->back();
+        }
+        catch(const std::exception& e)
+        {}
+      }
     }
+  }
+  else{
+    std::cout << "Invalid Filename!\n";
   }
 }

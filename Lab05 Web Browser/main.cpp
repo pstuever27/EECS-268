@@ -8,7 +8,7 @@ int main(int argc, char* argv[])
   Executive begin(argv[1]);
   begin.run();
   }
-  else if(argc < 0)
+  else
   {
     std::cout << "Please enter a filename!\n";
   }

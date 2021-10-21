@@ -143,3 +143,9 @@ int LinkedList<T>::length() const
 {
   return(m_length);
 }
+
+template <typename T>
+void LinkedList<T>::deleteAfter(int index)
+{
+  
+}

@@ -1,11 +1,11 @@
 #include "BrowserHistory.h"
-#include "List.h"
+#include "LinkedList.h"
 #include <stdexcept>
 #include <string>
 
 BrowserHistory::BrowserHistory()
 {
-    Record = new List<std::string>();
+    Record = new LinkedList<std::string>();
     m_current = 0;
 }
 
