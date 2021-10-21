@@ -1,0 +1,17 @@
+Recursion-----------
+
+Passing arrays to recursive functions
+
+side quest!
+
+    char* ptrA = new char[4]
+    //fill with  [c, a, t, s]
+    char* ptrB = ptrA;
+    std::cout << ptrB[0]; //prints 'c'
+    std::cout << ptrB[2]; //prints 't'
+    ptrB = (ptrA+2); //no brackets; 
+                    //pointer math, offsets ptrB by 2
+    std::cout << ptrB[0] //prints 't'
+                                                [c, a, t, s]
+                                                 |      |
+                                                ptrA    ptrB

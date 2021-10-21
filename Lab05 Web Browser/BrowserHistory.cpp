@@ -4,7 +4,7 @@
 
 BrowserHistory::BrowserHistory()
 {
-    Record = new LinkedList();
+    Record = new LinkedList<std::string>();
     m_current = 0;
 }
 
@@ -61,10 +61,11 @@ std::string BrowserHistory::current() const
 void BrowserHistory::copyCurrentHistory(ListInterface<std::string>& destination)
 {
     int length = Record->length();
-    
+    std::string entryAt;
+
     for(int i = 0; i<length; i++)
     {
-        destination = setEntry(Record->getEntry(i), i);
+        Record->getEntry(i);
     }
     
 }

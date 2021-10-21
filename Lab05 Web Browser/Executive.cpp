@@ -1,5 +1,6 @@
 #include "Executive.h"
 #include "BrowserHistory.h"
+#include "LinkedList.h"
 #include <iostream>
 #include <fstream>
 
@@ -31,7 +32,11 @@ void Executive::run()
 
     else if(function == "HISTORY")
     {
-
+      std::string currentSite;
+      ListInterface<std::string>* copy = new LinkedList<std::string>();
+      currentSite = History->current();
+      std::cout << "==Oldest==";
+      //for loop here?
     }
     else if(function == "FORWARD")
     {

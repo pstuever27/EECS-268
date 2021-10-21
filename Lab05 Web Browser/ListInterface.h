@@ -4,7 +4,7 @@
 template <typename T>
 class ListInterface
 {
-    public: 
+    public:
     virtual ~ListInterface() {}
 
     /**

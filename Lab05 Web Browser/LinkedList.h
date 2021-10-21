@@ -1,5 +1,5 @@
-#ifndef LIST_H
-#define LIST_H
+#ifndef LINKEDLIST_H
+#define LINKEDLIST_H
 #include "ListInterface.h"
 #include "Node.h"
 
@@ -18,7 +18,7 @@ class LinkedList : public ListInterface<T>
     virtual void setEntry(int index, T entry);
     virtual int length() const;
 
-    //will delete all entries after a certian index
+    //will delete all entries after a certain index
     virtual void deleteAfter(int index);
 };
 #include "LinkedList.cpp"

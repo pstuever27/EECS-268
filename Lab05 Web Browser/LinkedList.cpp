@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Node.h"
 
 template <typename T>
 LinkedList<T>::LinkedList()
@@ -38,11 +39,11 @@ void LinkedList<T>::insert(int index, T entry)
   if(index == 0)
   {
     newNode->setNext(m_front);
-    m_front->setEntry(newNode);
+    m_front->setEntry(entry);
     m_length++;
   }
 
-  else if(index == length)
+  else if(index == m_length)
   {
     Node<T>* jumper = m_front;
 
@@ -115,24 +116,6 @@ void LinkedList<T>::clear()
 }
 
 template <typename T>
-T LinkedList<T>::getEntry(int index) const
-{
-  if(index > m_length || index < 0)
-  {
-    throw(std::runtime_error("Invalid index!\n"));
-  }
-  else
-  {
-    Node<T>* target = m_front;
-    for(int i = 0; i<index; i++)
-    {
-      target = target->getNext();
-    }
-    return(target->getEntry());
-  }
-}
-
-template <typename T>
 void LinkedList<T>::setEntry(int index, T entry)
 {
   if(index > m_length || index < 0)
@@ -147,8 +130,8 @@ void LinkedList<T>::setEntry(int index, T entry)
       target = target->getNext();
     }
     target->setEntry(entry);
+    target = nullptr;
   }
-  target = nullptr;
 }
 
 template <typename T>
