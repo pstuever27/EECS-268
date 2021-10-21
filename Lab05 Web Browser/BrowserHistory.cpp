@@ -1,6 +1,7 @@
 #include "BrowserHistory.h"
 #include "LinkedList.h"
 #include <stdexcept>
+#include <string>
 
 BrowserHistory::BrowserHistory()
 {

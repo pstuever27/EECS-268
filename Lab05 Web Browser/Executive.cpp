@@ -4,6 +4,8 @@
 #include <iostream>
 #include <fstream>
 
+#include <string>
+
 Executive::Executive(std::string argv)
 {
   m_fileName = argv;

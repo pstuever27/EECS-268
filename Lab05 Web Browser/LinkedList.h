@@ -3,6 +3,8 @@
 #include "ListInterface.h"
 #include "Node.h"
 
+#include <string>
+
 template <typename T>
 class LinkedList : public ListInterface<T>
 {

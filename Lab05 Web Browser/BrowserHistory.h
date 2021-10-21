@@ -6,6 +6,8 @@
 #include "ListInterface.h"
 #include "BrowserHistoryInterface.h"
 
+#include <string>
+
 
 class BrowserHistory
 {

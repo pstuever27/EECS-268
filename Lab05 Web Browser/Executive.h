@@ -4,6 +4,8 @@
 #include <iostream>
 #include "BrowserHistory.h"
 
+#include <string>
+
 class Executive
 {
   public:
