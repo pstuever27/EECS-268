@@ -1,14 +1,14 @@
-Exercise1: main.o Executive.o BrowserHistory.o LinkedList.o Node.o
-		g++ -std=c++11 -g -Wall main.o Executive.o -o Exercise1
+Exercise1: main.o Executive.o BrowserHistory.o List.o Node.o
+		g++ -std=c++11 -g -Wall main.o Executive.o List.o Node.o -o Exercise1
 main.o: main.cpp Executive.h
 		g++ -std=c++11 -g -Wall -c main.cpp
-Executive.o: Executive.h Executive.cpp BrowserHistoryInterface.h BrowserHistory.h BrowserHistory.cpp
+Executive.o: Executive.h BrowserHistory.h List.h
 		g++ -std=c++11 -g -Wall -c Executive.cpp
-BrowserHistory.o: BrowserHistoryInterface.h BrowserHistory.h BrowserHistory.cpp ListInterface.h LinkedList.h LinkedList.cpp Node.h Node.cpp	
+BrowserHistory.o: BrowserHistoryInterface.h BrowserHistory.h ListInterface.h
 		g++ -std=c++11 -g -Wall -c BrowserHistory.cpp
-LinkedList.o: ListInterface.h LinkedList.h LinkedList.cpp Node.h Node.cpp
-		g++ -std=c++11 -g -Wall -c LinkedList.cpp
-Node.o: Node.h Node.cpp	
+List.o: ListInterface.h List.h Node.h
+		g++ -std=c++11 -g -Wall -c List.cpp
+Node.o: Node.h
 		g++ -std=c++11 -g -Wall -c Node.cpp
 clean:
 		rm *.o Exercise1

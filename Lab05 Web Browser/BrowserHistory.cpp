@@ -1,10 +1,10 @@
 #include "BrowserHistory.h"
-#include "LinkedList.h"
+#include "List.h"
 #include <stdexcept>
 
 BrowserHistory::BrowserHistory()
 {
-    Record = new LinkedList<std::string>();
+    Record = new List<std::string>();
     m_current = 0;
 }
 
@@ -67,5 +67,5 @@ void BrowserHistory::copyCurrentHistory(ListInterface<std::string>& destination)
     {
         Record->getEntry(i);
     }
-    
+
 }
