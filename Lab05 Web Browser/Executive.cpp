@@ -30,8 +30,9 @@ void Executive::run()
   inFile.open(m_fileName);
   if(inFile.is_open())
   {
-    while(inFile >> function)
-    {
+    //while(inFile >> function)
+    //{
+      inFile >> function;
 
       if(function == "NAVIGATE")
       {
@@ -45,7 +46,7 @@ void Executive::run()
         ListInterface<std::string>* copy = new LinkedList<std::string>();
         currentSite = History->current();
         std::cout << "==Oldest==";
-        //for loop here?
+        
         delete copy;
       }
       else if(function == "FORWARD")
@@ -66,7 +67,7 @@ void Executive::run()
         catch(const std::exception& e)
         {}
       }
-    }
+    //}
   }
   else{
     std::cout << "Invalid Filename!\n";
