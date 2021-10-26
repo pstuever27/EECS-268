@@ -34,28 +34,25 @@ int Fib::ith(int input, int number)
   }
 }
 
-bool Fib::doesContain(int number, int index)
+bool Fib::doesContain(int number, int returned)
 {
   if(number == 0 || number == 1)
   {
-    return (true);
+    return(true);
   }
-    int result = 0;
-    
-    result = ith(index, 0);
-    std::cout << result << '\n';
-    if(result == number)
-    {
-      return(true);
-    }
-    else if(index == 0 && result != number)
-    {
-      return(false);
-    }
-    else
-    {
-      return(doesContain(number, index++));
-    }
+  else if(returned > number)
+  {
+    return(false);
+  }
+  else if(returned == number)
+  {
+    return(true);
+  }
+  int temp = returned;
+  m_twoback = m_oneback;
+  m_oneback = temp;
+  returned = m_oneback + m_twoback;
+  return doesContain(number, returned);
 }
 
 
