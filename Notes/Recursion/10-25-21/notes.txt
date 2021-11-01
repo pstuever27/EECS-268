@@ -1,0 +1,37 @@
+ /**Boardwork 1
+ 
+ char* ptrA = new char[4];
+ //fill the array with [c, a, t, s]
+ char* ptrB = ptrA;
+ std::cout << ptrB[0]; //prints 'c'
+ ptrB = (ptrA+2);
+ std::cout << ptrB[0]; //prints 't'*/
+ 
+ Boardwork:
+ write a recursive def for...
+ 
+ bool isPalindrome(char* arr, int size)
+ {
+    if(size <= 1)
+    {
+        return(true);
+    }
+    else if(arr[0] == arr[size-1]){
+        arr = (arr+1);
+        size-=2;
+        return(isPalindrome(arr, size));
+    }
+    else
+    {
+        return(false);
+    }
+ }
+
+//Boardwork 2
+/**
+ * Maze walking
+ *      Solve this maze
+ * 
+ *      | P P P P P P P |
+ *      | W W W P W W P |
+ *      | E P P P W P P |
