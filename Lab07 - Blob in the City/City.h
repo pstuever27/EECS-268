@@ -24,5 +24,7 @@ private:
   int m_columns;
   bool m_is_sewers;
   int m_eaten;
+  int m_x, m_y;
+  bool m_cantmove;
 
 }
