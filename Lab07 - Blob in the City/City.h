@@ -1,14 +1,17 @@
 #ifndef CITY_H
 #define CITY_H
+#include <string>
+#include <fstream>
 
 class City
 {
 public:
-  City(std::string fileName);
+  City(std::ifstream& inFile);
 
   ~City();
 
-  void print();
+  void printBefore();
+  void printAfter();
   //covers all applicable titles with blobs [B]
   //the city array will be modified, as all applicable tiles will be B
   void BlobbifyCity();
@@ -27,4 +30,5 @@ private:
   int m_x, m_y;
   bool m_cantmove;
 
-}
+};
+#endif

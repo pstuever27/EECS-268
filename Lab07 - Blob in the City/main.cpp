@@ -1,4 +1,4 @@
-#include "Executive.h"
+#include "City.h"
 #include <iostream>
 #include <string>
 
@@ -7,13 +7,14 @@ int main(int argc, char* argv[])
   if(argc>0)
   {
     std::ifstream inFile;
-    inFile.open(argv[1])
+    inFile.open(argv[1]);
     if(inFile.is_open())
     {
       City run(inFile);
-      run.print();
+      run.printBefore();
       run.BlobbifyCity();
-      run.print();
+      run.printAfter();
+      
     }
   }
   else
