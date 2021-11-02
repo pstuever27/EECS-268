@@ -14,7 +14,10 @@ int main(int argc, char* argv[])
       run.printBefore();
       run.BlobbifyCity();
       run.printAfter();
-      
+    }
+    else
+    {
+      std::cout << "Please enter a valid filename!\n";
     }
   }
   else

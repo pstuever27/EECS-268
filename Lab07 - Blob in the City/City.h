@@ -17,12 +17,13 @@ public:
   void BlobbifyCity();
 
   //recursive function that will iterate through the city.
-  void Blobbify(int start_x, int start_y);
+  void Blobbify(int& start_x, int& start_y);
 
   //function that will backtrace through the city
 
 private:
   char** m_city;
+  int** m_visited;
   int m_start_x;
   int m_start_y;
   int m_rows;
