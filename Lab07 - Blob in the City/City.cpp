@@ -31,8 +31,7 @@ City::City(std::ifstream& inFile)
       }
     }
   }
-  m_x = m_start_x;
-  m_y = m_start_y;
+
 }
 
 City::~City()
@@ -42,7 +41,7 @@ City::~City()
 
 void City::BlobbifyCity()
 {
-  
+  m_city[m_start_x][m_start_y] = 'B';
   Blobbify(m_start_x, m_start_y);
   if(m_is_sewers) //flag that is made in blobbify() that will tell us if there are sewers.
   {
@@ -62,32 +61,38 @@ void City::BlobbifyCity()
 void City::Blobbify(int start_x, int start_y)
 {
   //check up
-  if((m_city[m_x - 1][m_y] != '#' || m_city[m_x - 1][m_y] != 'B') && m_x != 0)
+  m_x = start_x;
+  m_y = start_y;
+  if(m_x > 0 && m_city[m_x - 1][m_y] != '#' && m_city[m_x - 1][m_y] != 'B')
   {
-    if(m_city[m_x - 1][m_y] == 'S')
-    {
-      m_x--;
-      m_city[m_x][m_y] = 'B';
-      Blobbify(m_x, m_y);
-    }
-    if(m_city[m_x - 1][m_y] == 'P')
-    {
-      m_x--;
-      m_eaten++;
-      m_city[m_x][m_y] = 'B';
-      Blobbify(m_x, m_y);
-    }
-    if(m_city[m_x - 1][m_y] == '@' && m_cantmove)
-    {
-      m_x--;
-      m_is_sewers = 1;
-      m_city[m_x][m_y] = 'B';
-    }
+
+      std::cout << "up\n";
+      if(m_city[m_x - 1][m_y] == 'S')
+      {
+        m_x--;
+        m_city[m_x][m_y] = 'B';
+        Blobbify(m_x, m_y);
+      }
+      else if(m_city[m_x - 1][m_y] == 'P')
+      {
+        m_x--;
+        m_eaten++;
+        m_city[m_x][m_y] = 'B';
+        Blobbify(m_x, m_y);
+      }
+      else if(m_city[m_x - 1][m_y] == '@' && m_cantmove)
+      {
+        m_x--;
+        m_is_sewers = 1;
+        m_city[m_x][m_y] = 'B';
+      }
   }
 
+
   //Check right
-  else if((m_city[m_x][m_y + 1] != '#' || m_city[m_x][m_y + 1] != 'B') && m_y < m_columns - 1)
+  else if(m_y < m_columns && m_city[m_x][m_y + 1] != '#' && m_city[m_x][m_y + 1] != 'B')
   {
+    std::cout << "right\n";
     if(m_city[m_x][m_y + 1] == 'S')
     {
       m_y++;
@@ -108,33 +113,36 @@ void City::Blobbify(int start_x, int start_y)
       m_city[m_x][m_y] = 'B';
     }
   }
-  
+
   //Check down
-  else if((m_city[m_x + 1][m_y] != '#' || m_city[m_x + 1][m_y] != 'B') && m_x < m_rows-1)
+  else if(m_x < m_rows && m_city[m_x + 1][m_y] != '#' && m_city[m_x + 1][m_y] != 'B')
   {
-    if(m_city[m_x - 1][m_y] == 'S')
+    std::cout << "Down\n";
+    if(m_city[m_x + 1][m_y] == 'S')
     {
-      m_y++;
+      m_x++;
       m_city[m_x][m_y] = 'B';
       Blobbify(m_x, m_y);
     }
-    if(m_city[m_x - 1][m_y] == 'P')
+    if(m_city[m_x + 1][m_y] == 'P')
     {
-      m_y++;
+      m_x++;
       m_eaten++;
       m_city[m_x][m_y] = 'B';
       Blobbify(m_x, m_y);
     }
-    if(m_city[m_x - 1][m_y] == '@' && m_cantmove)
+    if(m_city[m_x + 1][m_y] == '@' && m_cantmove)
     {
-      m_x--;
+      m_x++;
       m_is_sewers = 1;
       m_city[m_x][m_y] = 'B';
     }
   }
 
-  else if((m_city[m_x][m_y - 1] != '#' || m_city[m_x][m_y - 1] != 'B') && m_y != 0)
+  //check left
+  else if(m_y > 0 && m_city[m_x][m_y - 1] != '#' && m_city[m_x][m_y - 1] != 'B')
   {
+    std::cout << "Left\n";
     if(m_city[m_x][m_y - 1] == 'S')
     {
       m_y--;
@@ -156,12 +164,107 @@ void City::Blobbify(int start_x, int start_y)
     }
   }
 
+  //do the opposite?
+  else if(m_cantmove && !m_is_sewers)
+  {
+    if(m_x != m_start_x && m_y != m_start_y)
+    {
+    //check left
+       if(m_y > 0 && m_city[m_x][m_y - 1] != '#')
+        {
+          std::cout << "Backtrace Left\n";
+          if(m_city[m_x][m_y - 1] == 'S' || m_city[m_x][m_y - 1] == 'P')
+          {
+            if(m_city[m_x][m_y - 1] == 'P')
+            {
+              m_eaten++;
+            }
+            m_y--;
+            m_city[m_x][m_y] = 'B';
+            m_cantmove = 0;
+            Blobbify(m_x, m_y);
+          }
+          else
+          {
+            m_y--;
+            Blobbify(m_x, m_y);
+          }
+        }
+
+        //check Down
+        else if(m_x < m_rows && m_city[m_x + 1][m_y] != '#')
+        {
+          std::cout << "Backtrace Down\n";
+          if(m_city[m_x + 1][m_y] == 'S' || m_city[m_x + 1][m_y] == 'P')
+          {
+            if(m_city[m_x + 1][m_y] == 'P')
+            {
+              m_eaten++;
+            }
+            m_x++;
+            m_city[m_x][m_y] = 'B';
+            m_cantmove = 0;
+            Blobbify(m_x, m_y);
+          }
+          else
+          {
+            m_x++;
+            Blobbify(m_x, m_y);
+          }
+        }
+
+        //check right
+        else if(m_y < m_columns && m_city[m_x][m_y + 1] != '#')
+        {
+          std::cout << "Backtrace right\n";
+          if(m_city[m_x][m_y + 1] == 'S' || m_city[m_x][m_y + 1] == 'P')
+          {
+            if(m_city[m_x][m_y + 1] == 'P')
+            {
+              m_eaten++;
+            }
+            m_y++;
+            m_city[m_x][m_y] = 'B';
+            m_cantmove = 0;
+            Blobbify(m_x, m_y);
+          }
+          else
+          {
+            m_y++;
+            Blobbify(m_x, m_y);
+          }
+        }
+
+        //check up
+        else if(m_x > 0 && m_city[m_x - 1][m_y] != '#')
+        {
+          std::cout << "Backtrace up\n";
+          if(m_city[m_x - 1][m_y] == 'S' || m_city[m_x - 1][m_y] == 'P')
+          {
+            if(m_city[m_x - 1][m_y] == 'P')
+            {
+              m_eaten++;
+            }
+            m_x--;
+            m_city[m_x][m_y] = 'B';
+            m_cantmove = 0;
+            Blobbify(m_x, m_y);
+          }
+          else
+          {
+            m_x--;
+            Blobbify(m_x, m_y);
+          }
+        }
+      }
+  }
+
   else{
     m_cantmove = 1;
-    
-
+    Blobbify(m_x, m_y);
   }
 }
+
 
 void City::printBefore()
 {

@@ -19,6 +19,8 @@ public:
   //recursive function that will iterate through the city.
   void Blobbify(int start_x, int start_y);
 
+  //function that will backtrace through the city
+
 private:
   char** m_city;
   int m_start_x;
