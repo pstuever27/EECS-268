@@ -7,7 +7,7 @@
 City::City(std::ifstream& inFile)
 {
   char temp;
-  m_visited = new int*[m_rows];
+  m_visited = new int* [m_rows];
   inFile >> m_rows >> m_columns >> m_start_x >> m_start_y;
   m_city = new char*[m_rows];
   m_eaten = 0;
@@ -49,11 +49,8 @@ City::~City()
 {
   for(int i = 0; i<m_rows; i++)
   {
-    for(int j = 0; j<m_columns; j++)
-    {
-      delete[] m_city[j];
-    }
-    delete[] m_city[i];
+    delete m_city[i];
+    delete m_visited[i];
   }
 
   delete[] m_city;
@@ -81,7 +78,7 @@ void City::BlobbifyCity()
     {
       for(int j=0; j<m_columns; j++)
       {
-        if(m_city[i][j] == '@')
+        if(m_city[i][j] == '@' && m_visited[i][j] != 1)
         {
           Blobbify(i, j);
         }
@@ -120,7 +117,8 @@ void City::Blobbify(int& start_x, int& start_y)
       {
         m_x--;
         m_is_sewers = 1;
-        m_city[m_x][m_y] = 'B';
+        m_visited[m_x][m_y];
+        m_cantmove = 0;
       }
   }
 
@@ -148,7 +146,8 @@ void City::Blobbify(int& start_x, int& start_y)
     {
       m_y++;
       m_is_sewers = 1;
-      m_city[m_x][m_y] = 'B';
+      m_cantmove = 0;
+      m_visited[m_x][m_y] = 1;
     }
   }
 
@@ -175,7 +174,8 @@ void City::Blobbify(int& start_x, int& start_y)
     {
       m_x++;
       m_is_sewers = 1;
-      m_city[m_x][m_y] = 'B';
+      m_cantmove = 0;
+      m_visited[m_x][m_y] = 1;
     }
     
   }
@@ -204,7 +204,8 @@ void City::Blobbify(int& start_x, int& start_y)
     {
       m_y--;
       m_is_sewers = 1;
-      m_city[m_x][m_y] = 'B';
+      m_cantmove = 0;
+      m_visited[m_x][m_y] = 1;
     }
   }
   
