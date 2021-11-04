@@ -10,10 +10,17 @@ int main(int argc, char* argv[])
     inFile.open(argv[1]);
     if(inFile.is_open())
     {
+      try{
       City run(inFile);
       run.printBefore();
       run.BlobbifyCity();
       run.printAfter();
+      }
+      catch(std::exception& e)
+      {
+        std::cout << e.what();
+      }
+      
     }
     else
     {
