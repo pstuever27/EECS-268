@@ -1,3 +1,11 @@
+/**
+ * @name Paul Stuever
+ * @Filename main.cpp
+ * @assignment EECS268 - Lab07 - Blob in the city!
+ * @Description This is the main file that will take in the filename and, if the file is valid, pass it off to City.cpp, my executive.
+ * @date 11/03/2021
+ **/
+
 #include "City.h"
 #include <iostream>
 #include <string>
