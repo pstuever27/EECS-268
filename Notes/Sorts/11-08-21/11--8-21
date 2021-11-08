@@ -15,4 +15,36 @@ We're going to focus on binary trees.
     -Children do not point back to their parents in the tree
     -Good news! Trees are ascyclic, meaning no cycles!
     -Recursivley traverse the data structure.
+
+//Make a sketch of a BinaryTree class
+
+#incude "BNode.h"
+template<typename T>
+class BinaryTree
+{
+    private:
+    BNode<T>* m_root; //node that has entry, left and right pointers
+                      //Assume this class has getters+setters for those members
     
+    public:
+    BinaryTree(); //set the m_root to nullptr
+    void add(T entry); //assume this works lol
+    bool isInTree(T entry) const; //Will find out if something is in the tree
+    bool recIsInTree(T entry, BNode<T>* curNode);
+
+
+//main.cpp
+int main()
+{
+    BinaryTree<int> btree;
+    btree.add(5);
+    btree.add(10);
+    btree.add(15);
+    if(btree.isInTree(10))
+    {
+        //something
+    }
+
+}
+    
+}
