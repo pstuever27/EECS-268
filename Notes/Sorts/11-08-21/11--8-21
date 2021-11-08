@@ -1,0 +1,18 @@
+Trees
+            
+            A <- Root
+          /   \
+        B       C
+      /    \      \
+    D       E       F
+
+We're going to focus on binary trees.
+    -Where every node is connected to up to 2 other nodes
+    -Left and right children
+    -Root: Top node in the tree
+    -Parent node: "A is the parent of B and C"
+    -Leaf: a node with 0 children
+    -Children do not point back to their parents in the tree
+    -Good news! Trees are ascyclic, meaning no cycles!
+    -Recursivley traverse the data structure.
+    
