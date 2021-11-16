@@ -1,0 +1,54 @@
+Binary search tree
+
+    add 5, 10, 15, 7, 12 
+
+                5
+                 \
+                  10
+                 /  \
+                7    15
+                    / 
+                   12
+                  
+Our BSTs are going to have two templated types:
+-Item type: The actual objects in the tree
+-Key Type: the search term (aka "key") that we use when searching
+
+-Our BST has rules about adding then we need to have the following defined via operator overloads.
+  Item < Item  -|
+  item == item  |- All these definitions would be in the item class' definition. 
+  item < Key    |- Example: bool operator<(const Student& rhs) const;
+  item == key  -|   - bool operator<(const int KUID) const;
+
+  //BSTInerface.h 
+  template <typename Item, typename Key>
+  class BSTInterface
+  {
+      public:
+      virtual add(Item entry) = 0;
+      virtual Item search(Key searchTerm) const = 0;
+      ---------------------------------------------------
+  }
+
+//BST.h
+#include "BSTInerface.h"
+#include "BNode.h"
+template <typename Item, typename Key>
+
+class BST : public BSTInerface<Item, Key>
+{
+    private:
+    BNode<Item>* m_root;
+    Item recSearch(Key searchTerm, BNode<item>* curNode) const;
+    
+    public:
+    BST(); //sets m_root to nullptr
+    Item search(Key searchTerm) const;
+}
+
+Boardwork:
+Assume the following are overloaded:
+    Item < Key
+    Item == Key
+
+Define both pubilc and private search for BST.h
