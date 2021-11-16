@@ -112,9 +112,73 @@ void Executive::Listone()
 }
 void Executive::Listlast()
 {
+  m_List = new List<int>();
+
+  for (int i = 0; i < elements; i++)
+  {
+    m_List->insert(i, i);
+  }
+
+  clock_t start = clock();
+  m_List->getEntry(elements);
+  clock_t end = clock();
+
+  float t = end - start;
+  float time_taken = double(t)/CLOCKS_PER_SEC;
+  std::cout << "Time taken at " << elements << " is " << std::setprecision(100) << time_taken << " seconds.\n";
+
+  if(elements == 100000)
+  {
+    std::cout << "List getEntry at last index ^^^\n";
+  }
+  else if(elements < 100000)
+  {
+    elements = elements + 1000;
+    Listlast();
+  }
 
 }
 void Executive::Printlist()
 {
+  m_List = new List<int>();
 
+  for(int i = 0; i < elements; i++)
+  {
+    m_List->insert(i, i);
+  }
+
+  clock_t start = clock();
+
+  for (int i = 0; i < elements; i++)
+  {
+    std::cout << m_List->getEntry(i);
+  }
+
+  clock_t end = clock();
+
+  float t = end - start;
+  float time_taken = double(t)/CLOCKS_PER_SEC;
+  std::cout << "Time taken at " << elements << " is " << std::setprecision(100) << time_taken << " seconds.\n";
+
+  if(elements == 100000)
+  {
+    std::cout << "Print all elements of a list ^^^\n";
+  }
+  else if(elements < 100000)
+  {
+    char continuer;
+    elements = elements + 1000;
+    std::cout << "Enter any character to continue PrintList: ";
+    std::cin << continuer;
+    if(continuer == 'p' || continuer == 'P')
+    {
+      Printlist();
+    }
+    else
+    {
+      Printlist();
+    }
+
+  }
+  
 }
