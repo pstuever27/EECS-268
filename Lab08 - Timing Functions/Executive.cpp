@@ -86,6 +86,14 @@ void Executive::Listone()
 
   for(int i = 0 ; i < elements; i++)
   {
+    try
+    {
+      m_List->insert(i, i);    }
+    catch(const std::exception& e)
+    {
+      std::cerr << e.what() << '\n';
+    }
+    
     m_List->insert(i, i);
   }
 
@@ -169,7 +177,7 @@ void Executive::Printlist()
     char continuer;
     elements = elements + 1000;
     std::cout << "Enter any character to continue PrintList: ";
-    std::cin << continuer;
+    std::cin >> continuer;
     if(continuer == 'p' || continuer == 'P')
     {
       Printlist();
