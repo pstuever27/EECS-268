@@ -12,7 +12,7 @@ List<T>::List()
 template <typename T>
 T List<T>::getEntry(int index) const
 {
-  if(index < m_length && index > 0)
+  if(index < m_length && index >= 0)
   {
       Node<T>* jumper = m_front;
 
@@ -37,38 +37,25 @@ void List<T>::insert(int index, T entry)
 
 
   Node<T>* newNode = new Node<T>(entry);
-  if(index == 0)
+  if(index == 0 || m_front == nullptr)
   {
-    newNode->setNext(m_front);
-    m_front->setEntry(entry);
-    m_length++;
-  }
-
-  else if(index == m_length)
-  {
-    Node<T>* jumper = m_front;
-
-      for(int i = 0; i<m_length; i++)
-      {
-        jumper = jumper->getNext();
-      }
-    jumper->setNext(newNode);
+    m_front = newNode;
     m_length++;
   }
 
   else
   {
     Node<T>* jumper = m_front;
-    Node<T>* oneBefore = m_front;
 
-    for(int i = 0; i<index; i++)
+    while(jumper->getNext() != nullptr)
     {
-      oneBefore = oneBefore->getNext();
+      jumper = jumper->getNext();
     }
 
-    oneBefore->setNext(newNode);
-    newNode->setNext(jumper);
+    jumper->setNext(newNode);
+    m_length++;
   }
+
 }
 
 template <typename T>

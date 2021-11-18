@@ -14,6 +14,7 @@ private:
   Queue<int>* m_Queue;
   List<int>* m_List;
   int elements;
+  int list_elements;
 public:
   Executive();
   ~Executive();

@@ -6,6 +6,7 @@
 Executive::Executive()
 {
   elements = 1000;
+  list_elements = 0;
   m_Stack = nullptr;
   m_Queue = new Queue<int>();
   m_List = new List<int>();
@@ -13,7 +14,7 @@ Executive::Executive()
 
 Executive::~Executive()
 {
-
+  delete[] m_Queue;
 }
 
 void Executive::Stackpop()
@@ -48,11 +49,34 @@ void Executive::Stackpop()
 
 void Executive::StackDestructor()
 {
+  m_Stack = new Stack<int>();
+  for(int i = 0; i<elements; i++)
+  {
+    m_Stack->push(i);
+  }
+
+  clock_t start = clock();
+  delete m_Stack;
+  clock_t end = clock();
+
+  float t = end - start;
+  float time_taken = double(t)/CLOCKS_PER_SEC;
+  std::cout << "Time taken at " << elements << " is " << std::setprecision(100) << time_taken << " seconds.\n";
+
+   if(elements < 100000)
+  {
+  elements = elements + 1000;
+  StackDestructor();
+  }
+  if(elements == 100000)
+  {
+    std::cout << "Stack destructor ^^^\n";
+    elements = 1000;
+  }
 
 }
 void Executive::Queuedequeue()
 { 
-  m_Queue = new Queue<int>();
   
   clock_t start = clock();
 
@@ -66,8 +90,6 @@ void Executive::Queuedequeue()
   float time_taken = double(t)/CLOCKS_PER_SEC;
   std::cout << "Time taken at " << elements << " is " <<std::setprecision(100) << time_taken << " seconds.\n";
 
-  delete m_Queue;
-
   if(elements < 100000)
   {
     elements = elements + 1000;
@@ -79,12 +101,11 @@ void Executive::Queuedequeue()
     elements = 1000;
   }
 
+
 }
 void Executive::Listone()
 {
-  m_List = new List<int>();
-
-  for(int i = 0 ; i < elements; i++)
+  for(int i = list_elements ; i < 1000; i++)
   {
     try
     {
@@ -103,52 +124,51 @@ void Executive::Listone()
 
   float t = end - start;
   float time_taken = double(t)/CLOCKS_PER_SEC;
-  std::cout << "Time taken at " << elements << " is " << std::setprecision(100) << time_taken << " seconds.\n";
+  std::cout << "Time taken at " << list_elements << " is " << std::setprecision(500) << time_taken << " seconds.\n";
 
-  if(elements < 100000)
+  if(list_elements < 100000)
   {
-    elements = elements + 1000;
+    list_elements = list_elements + 1000;
     Listone();
   }
-  if(elements == 100000)
+  else
   {
     std::cout << "List getEntry at index 0 ^^^\n";
-    elements = 1000;
+    list_elements = 1000;
   }
 
-
+  list_elements = 0;
 }
 void Executive::Listlast()
 {
-  m_List = new List<int>();
 
-  for (int i = 0; i < elements; i++)
+  for (int i = 0; i < 1000; i++)
   {
-    m_List->insert(i, i);
+    m_List->insert(list_elements, i);
+    list_elements++;
   }
 
   clock_t start = clock();
-  m_List->getEntry(elements);
+  m_List->getEntry(list_elements-1);
   clock_t end = clock();
 
   float t = end - start;
   float time_taken = double(t)/CLOCKS_PER_SEC;
-  std::cout << "Time taken at " << elements << " is " << std::setprecision(100) << time_taken << " seconds.\n";
+  std::cout << "Time taken at " << list_elements << " is " << std::setprecision(1000) << time_taken << " seconds.\n";
 
-  if(elements == 100000)
+  
+  if(list_elements != 100000)
+  {
+    Listlast();
+  }
+  else
   {
     std::cout << "List getEntry at last index ^^^\n";
-  }
-  else if(elements < 100000)
-  {
-    elements = elements + 1000;
-    Listlast();
   }
 
 }
 void Executive::Printlist()
 {
-  m_List = new List<int>();
 
   for(int i = 0; i < elements; i++)
   {
@@ -159,14 +179,14 @@ void Executive::Printlist()
 
   for (int i = 0; i < elements; i++)
   {
-    std::cout << m_List->getEntry(i);
+    std::cout << '\n' << m_List->getEntry(i);
   }
 
   clock_t end = clock();
 
   float t = end - start;
   float time_taken = double(t)/CLOCKS_PER_SEC;
-  std::cout << "Time taken at " << elements << " is " << std::setprecision(100) << time_taken << " seconds.\n";
+  std::cout << "\nTime taken at " << elements << " is " << std::setprecision(100) << time_taken << " seconds.\n";
 
   if(elements == 100000)
   {
@@ -176,7 +196,7 @@ void Executive::Printlist()
   {
     char continuer;
     elements = elements + 1000;
-    std::cout << "Enter any character to continue PrintList: ";
+    std::cout << "\nEnter any character to continue PrintList: ";
     std::cin >> continuer;
     if(continuer == 'p' || continuer == 'P')
     {

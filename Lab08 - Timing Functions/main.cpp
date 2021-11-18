@@ -23,12 +23,24 @@ int main()
   run.Stackpop();
   if(continuescript())
   {
-    run.Queuedequeue();
+    run.StackDestructor();
     if(continuescript())
     {
-      run.Listone();
+      run.Queuedequeue();
+      if(continuescript())
+      {
+        run.Listone();
+        if(continuescript())
+        {
+          run.Listlast();
+          if(continuescript())
+          {
+            run.Printlist();
+          }
+        }
+      }
     }
-  }
+  } 
   
   return(0);
 }
