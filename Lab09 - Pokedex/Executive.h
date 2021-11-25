@@ -7,8 +7,8 @@ class Executive{
 
 private:
   Pokemon* m_Poke;
-  BST* m_Tree;
-  string m_filename;
+  BST<Pokemon, int>* m_Tree;
+  std::string m_filename;
 
 public:
   Executive();
@@ -19,7 +19,8 @@ public:
   void print();
   static void pokemonPrinter(Pokemon p); //prints a single pokemon
 
-}
+};
+#endif
 
 /**
 *GAME PLAN: take in all the info from the file and put it into a pokemon object, then add that object to the BST

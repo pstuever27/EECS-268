@@ -30,3 +30,33 @@ int Pokemon::getNumber()
 {
   return(m_number);
 }
+
+  bool operator>(Pokemon rhs)
+  {
+    return(m_number > rhs.getNumber());
+  }
+
+  bool operator<(Pokemon rhs)
+  {
+    return(m_number < rhs.getNumber());
+  }
+
+  bool operator==(Pokemon rhs)
+  {
+    return(m_number == rhs.getNumber());
+  }
+
+  bool operator==(int rhs)
+  {
+    return(m_number == rhs);
+  }
+
+  bool operator<(int rhs)
+  {
+    return(m_number < rhs);
+  }
+
+  bool operator>(int rhs)
+  {
+    return(m_number > rhs);
+  }

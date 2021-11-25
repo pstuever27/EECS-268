@@ -6,8 +6,8 @@
 class Pokemon
 {
 private:
-  string m_AmericanName;
-  string m_JapaneseName;
+  std::string m_AmericanName;
+  std::string m_JapaneseName;
   int m_number;
 
 public:

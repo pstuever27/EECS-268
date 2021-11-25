@@ -4,7 +4,7 @@
 #include <string>
 #include <iostream>
 
-Executive::Executive(string filename)
+Executive::Executive(std::string filename)
 {
   m_Poke = nullptr;
   m_Tree = nullptr;
@@ -13,7 +13,11 @@ Executive::Executive(string filename)
 
 Executive::~Executive()
 {
-  //destructor
+  m_Poke = nullptr;
+  m_Tree = nullptr;
+
+  delete[] m_Poke;
+  delete[] m_Tree;
 }
 
 void fileFiller()
@@ -21,9 +25,10 @@ void fileFiller()
   std::ifstream inFile;
   inFile.open(m_filename);
   m_Poke = new Pokemon();
+  m_Tree = new BST<Pokemon, int>();
   std::string temp_AmName, temp_JapanName;
   int temp_number;
-  if(inFile_is.open())
+  if(inFile.is_open())
   {
     while(inFile >> temp_AmName >> temp_number >> temp_JapanName)
     {
