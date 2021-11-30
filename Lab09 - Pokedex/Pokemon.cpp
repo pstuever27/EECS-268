@@ -31,32 +31,32 @@ int Pokemon::getNumber()
   return(m_number);
 }
 
-  bool operator>(Pokemon rhs)
+  bool Pokemon::operator>(Pokemon rhs)
   {
     return(m_number > rhs.getNumber());
   }
 
-  bool operator<(Pokemon rhs)
+  bool Pokemon::operator<(Pokemon rhs)
   {
     return(m_number < rhs.getNumber());
   }
 
-  bool operator==(Pokemon rhs)
+  bool Pokemon::operator==(Pokemon rhs)
   {
     return(m_number == rhs.getNumber());
   }
 
-  bool operator==(int rhs)
+  bool Pokemon::operator==(int rhs)
   {
     return(m_number == rhs);
   }
 
-  bool operator<(int rhs)
+  bool Pokemon::operator<(int rhs)
   {
     return(m_number < rhs);
   }
 
-  bool operator>(int rhs)
+  bool Pokemon::operator>(int rhs)
   {
     return(m_number > rhs);
   }

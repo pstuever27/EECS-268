@@ -19,19 +19,19 @@ void BNode<T>::setRightPtr(BNode<T>* curNode)
 }
 
 template <typename T>
-BNode<T>* BNode<T>::getLeftPtr()
+BNode<T>* BNode<T>::getLeftPtr() const
 {
   return(m_leftPtr);
 }
 
 template <typename T>
-BNode<T>* BNode<T>::getRightPtr()
+BNode<T>* BNode<T>::getRightPtr() const
 {
   return(m_rightPtr);
 }
 
 template <typename T>
-T BNode<T>::getEntry()
+T BNode<T>::getEntry() const
 {
   return(m_entry);
 }

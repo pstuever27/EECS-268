@@ -1,0 +1,57 @@
+Heaps
+
+-We'll learn about min-heaps and max-heaps. Min-heaps first
+-Binary trees, but a special kind
+-Rules for BOTH structure and placement of values
+
+Rules for structure
+-Heaps are complete Binary trees
+-Complete Tree: in simple terms, you fill in the tree level by level from left to right
+
+                A                       A 
+              /   \     /              /   This is good too
+             B     C  \/              B 
+            / \   / \
+           D   E F   G
+
+
+                A                       A 
+               / \                     / \
+              B   C Good              B   C   NO! 
+             /                             \
+            D                               D
+
+
+Value requirements (min heaps)
+-Every node's value must be less than or equal to both of its children
+-Both of its children must qualify as min-heaps 
+
+        Example:        5   (5 is the minimum value, so it is the root)
+                       / \
+                      10  99 
+
+        Example:         10  (10 is minimum, and can have a duplicate directly under it)
+                        /  \
+                       10   20
+        
+        Example:           20  (NOT GOOD: 20 is greater than 7, so it is not a vaible min heap)
+                          /  \
+                         7   21
+
+Adding a min-heap
+1) Preserve the structure - Add the new value to the left-most unfilled position
+2) Upheap the new value - compare against its parent and swap if needed
+                            Upheap as needed 
+
+Add the following to a min heap: 10, 7, 3, 2
+
+            10 -> adds 7 to left of 10 ->  10  -> compare and swap ->  7
+                                          /                           /
+                                         7                          10
+            Continuing this gives us:
+
+                        2
+                       / \
+                      3   7
+                     /
+                    10

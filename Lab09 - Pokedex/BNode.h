@@ -10,9 +10,9 @@ private:
   BNode<T> m_rightPtr;
 
 public:
-  Bnode(T value);
+  BNode(T value);
   void setLeftPtr(BNode<T>* curNode);
-  void setRightPtr(Bnode<T>* curNode);
+  void setRightPtr(BNode<T>* curNode);
   BNode<T>* getLeftPtr() const;
   BNode<T>* getRightPtr() const;
   T getEntry() const;
