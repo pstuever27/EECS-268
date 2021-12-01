@@ -1,0 +1,58 @@
+Traversal Orders for Binary Trees 
+
+                    A
+                   / \
+                  B   C
+                 /\    \
+                D  E    F
+                    \  /
+                    G  H
+
+3 Well-Defined traversal Orders
+
+Pre-Order 
+1) Visit
+2) Traverse LST
+3) Traverse RST
+
+In-Order
+1) Traverse LST
+2) Visit 
+3) Traverse RST
+
+Post-Order
+1) Traverse LST
+2) Traverse RST
+3) Visit 
+
+
+------
+Pre-Order Traversal
+-Assume "visit" is just print the value in the node
+-First value visited - 'A'
+    -Traverse LST, visit 'B'
+        -Traverse LST, visit 'D'
+        -Traverse RST, visit 'E'
+            -No LST, Traverse RST, visit 'G'
+    -Traverse RST, visit 'C'
+        -Traverse RST, visit 'F'
+            -Traverse LST, visit 'H
+Pre - Order: ABDEGCFH
+
+Did the others in group work...
+Pre - Order: ABDEGCFH
+In - Order: DBEGACHF
+Post - Order: DEGBHFCA
+
+                            25
+                          /   \
+                        15     75
+                       /  \    / \
+                     10   20  55  90
+                         /     \    \
+                        17      65   100
+                                /
+                               60
+Pre Order: 25, 15, 10, 20, 17, 75, 55, 65, 60, 90, 100
+In Order: 10, 15, 17, 20, 25, 55, 60, 65, 75, 90, 100
+Post Order: 10, 17, 20, 15, 60, 65, 55, 100, 90, 75, 25
