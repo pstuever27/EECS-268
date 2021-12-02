@@ -208,7 +208,7 @@ void Executive::Printlist()
     std::cout << '\n' << m_List->getEntry(i);
   }
 
-  clock_t end = clock();
+  clocint k_t end = clock();
 
   float t = end - start;
   float time_taken = double(t)/CLOCKS_PER_SEC;
