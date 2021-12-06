@@ -1,0 +1,30 @@
+Uses of heaps
+-Add all the following values to a min heap: 20, 15, 10, 5, 85, 3, 1, 2
+-What would be the first value to be removed? It would be 1 because it is the minimum 
+-What order would I get the values out? 1, 2, 3, 5, 10, 15, 20, 85
+-Notice that our heap self organizes values and produces them in a sorted order
+
+Heaps could be used to implement a Priority Queue
+-Normal Queue - FIFO 
+-Priority Queue - Based on priority 
+   -As long as the class being stored in the heap can define priority order, then the heap will organize the items appropriately
+
+Boardwork: Write the upheap method using parent formula (i-1)/2
+
+//upHeap
+template <typename T>
+void MinHeap<T>::upHeap(int index)
+{
+	if(index != 0)
+	{
+
+	if(m_arr[index] <= m_arr[(index-1)/2])
+	{
+		T temp = m_arr[(index-1)/2];
+		m_arr[(index-1)/2] = m_arr[index];
+		m_arr[index] = temp;
+		
+		upHeap((index-1)/2);
+	}
+}
+}
