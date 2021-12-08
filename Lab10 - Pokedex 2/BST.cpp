@@ -26,33 +26,25 @@ BST<Item, Key>::~BST()
 template <typename Item, typename Key>
 Item BST<Item, Key>::recSearch(Key key, BNode<Item>* curNode) const
 {
-    if (curNode == nullptr)
-    {
-        Item none;
-        return(none);
-    }
-    else if (curNode->getEntry() == key)
-    {
-        return(curNode->getEntry());
-    }
+    if (curNode != nullptr)
+        {
+            if (curNode->getEntry() == key)
+            {
+            return(curNode->getEntry());
+            }
 
-    else if (curNode->getEntry() > key)
-    {
-        if(curNode -> getLeftPtr() != nullptr)
-        {
-            recSearch(key, curNode->getLeftPtr());
-        }
+            else if (curNode->getEntry() > key)
+            {
+                recSearch(key, curNode->getLeftPtr());
+            }
+            else if (curNode->getEntry() < key)
+            {
+                recSearch(key, curNode->getRightPtr());
+            }
     }
-    else if (curNode->getEntry() < key)
+    else
     {
-        if(curNode -> getRightPtr() != nullptr)
-        {
-            recSearch(key, curNode->getRightPtr());
-        }
-    }
-    else if(curNode -> getLeftPtr() != nullptr && curNode -> getRightPtr() != nullptr)
-    {
-        return (curNode->getEntry());
+        throw(std::runtime_error("Item not found!"));
     }
 }
 
