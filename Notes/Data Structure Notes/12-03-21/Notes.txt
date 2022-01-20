@@ -1,0 +1,64 @@
+Representing a binary tree as an array
+
+index: 0  1  2  3  4  5  6  7  ->Getting rid of the '?'s will give us a heap
+value: 25 10 99 21 ?  ?  31 ?
+
+                25
+                /\
+               10 99
+              /     \
+             21     31
+                    /
+                   42
+                    \
+                     65
+
+
+Array-Based implementation of a Min-heap
+
+Index Formulas
+--------------
+Root = 0
+Left child of i = 2i+1
+Right child of i = 2i+2
+parent of i = (i-1)/2 (works for right and left children)
+ 
+array_size = 8 -> how many indicies are allocated in the array
+heap_size = 4 -> how many elements are actually in the heap/array
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+| 10| 20| 40| 30|   |   |   |   | 
+
+            10
+           /  \
+         20    40
+        /
+      30
+
+Steps to adding:
+---------------
+Add: 20 -> heap_size = 1
+Add: 30 -> heap_size = 2
+Add: 40 -> heap_size = 3
+Add: 10 -> heap_size = 4 -> need to upheap because it is the min value
+        parent = (i-1)/2 -> (3-1)/2 = [1] 
+                            (1-1)/2 = [0]
+
+Removing nodes
+--------------
+Remove the root, go to the lowest level, and then go as far right as possible
+
+array_size = 8 -> how many indicies are allocated in the array
+heap_size = 3 -> how many elements are actually in the heap/array
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+| 30| 20| 40|   |   |   |   |   | 
+
+            10                               30    
+           /  \                             /  \
+         20    40  -> removing 10 ->      20    40
+        /
+      [30] -> bottom and rightmost node
+
+Steps to removing:
+Remove (always removes the root) -> heap_size = 3

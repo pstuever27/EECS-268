@@ -26,24 +26,25 @@ BST<Item, Key>::~BST()
 template <typename Item, typename Key>
 Item BST<Item, Key>::recSearch(Key key, BNode<Item>* curNode) const
 {
-    if(subTree == nullptr)
-    {
-        throw(std::runtime_error("Not found!\n"));
+    if (curNode != nullptr)
+        {
+            if (curNode->getEntry() == key)
+            {
+            return(curNode->getEntry());
+            }
+
+            else if (curNode->getEntry() > key)
+            {
+                recSearch(key, curNode->getLeftPtr());
+            }
+            else if (curNode->getEntry() < key)
+            {
+                recSearch(key, curNode->getRightPtr());
+            }
     }
     else
     {
-        if(curNode->getEntry() == key)
-        {
-            return(curNode->getEntry());
-        }
-        else if(curNode->getEntry() > key)
-        {
-            recSearch(key, curNode->getLeftPtr());
-        }
-        else
-        {
-            recSearch(key, curNode->getRightPtr())    
-        }
+        throw(std::runtime_error("Item not found!"));
     }
 }
 
@@ -99,7 +100,7 @@ Item BST<Item, Key>::search(Key key) const
     {
         std::cout << "Pokemon not found!\n";
     }
-    
+
 }
 
 //template <typename Item, typename Key>
@@ -132,7 +133,7 @@ void BST<Item, Key>::InOrderHelper(BNode<Item>* temp, void visit(Item)) const
 
 template <typename Item, typename Key>
 void BST<Item, Key>::PostOrderHelper(BNode<Item>* temp, void visit(Item)) const
-{   
+{
     if(temp != nullptr)
     {
         PostOrderHelper(temp->getLeftPtr(), visit);
@@ -142,7 +143,7 @@ void BST<Item, Key>::PostOrderHelper(BNode<Item>* temp, void visit(Item)) const
 }
 
 template <typename Item, typename Key>
-void BST<Item, Key>::visitPreOrder(void visit(Item)) const 
+void BST<Item, Key>::visitPreOrder(void visit(Item)) const
 {
     BNode<Item>* temp = m_root;
     if(temp != nullptr)
@@ -153,7 +154,7 @@ void BST<Item, Key>::visitPreOrder(void visit(Item)) const
 }
 
 template <typename Item, typename Key>
-void BST<Item, Key>::visitInOrder(void visit(Item)) const 
+void BST<Item, Key>::visitInOrder(void visit(Item)) const
 {
     BNode<Item>* temp = m_root;
     InOrderHelper(temp, visit);
