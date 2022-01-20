@@ -26,33 +26,24 @@ BST<Item, Key>::~BST()
 template <typename Item, typename Key>
 Item BST<Item, Key>::recSearch(Key key, BNode<Item>* curNode) const
 {
-    if (curNode == nullptr)
+    if(subTree == nullptr)
     {
-        Item none;
-        return(none);
+        throw(std::runtime_error("Not found!\n"));
     }
-    else if (curNode->getEntry() == key)
+    else
     {
-        return(curNode->getEntry());
-    }
-
-    else if (curNode->getEntry() > key)
-    {
-        if(curNode -> getLeftPtr() != nullptr)
+        if(curNode->getEntry() == key)
+        {
+            return(curNode->getEntry());
+        }
+        else if(curNode->getEntry() > key)
         {
             recSearch(key, curNode->getLeftPtr());
         }
-    }
-    else if (curNode->getEntry() < key)
-    {
-        if(curNode -> getRightPtr() != nullptr)
+        else
         {
-            recSearch(key, curNode->getRightPtr());
+            recSearch(key, curNode->getRightPtr())    
         }
-    }
-    else if(curNode -> getLeftPtr() != nullptr && curNode -> getRightPtr() != nullptr)
-    {
-        return (curNode->getEntry());
     }
 }
 
@@ -74,27 +65,13 @@ BNode<Item>* BST<Item, Key>::addHelper(BNode<Item>* subTree, BNode<Item>* curNod
     Item temp = curNode->getEntry();
     if(temp < subTree->getEntry())
     {
-        if(subTree->getLeftPtr() == nullptr)
-        {
-            subTree->setLeftPtr(curNode);
-        }
-        else
-        {
         BNode<Item>* next = addHelper(subTree->getLeftPtr(), curNode);
         subTree->setLeftPtr(next);
-        }
     }
-    else if(temp > subTree->getEntry())
+    else
     {
-        if(subTree->getRightPtr() == nullptr)
-        {
-            subTree->setRightPtr(curNode);
-        }
-        else
-        {
             BNode<Item>* next = addHelper(subTree->getRightPtr(), curNode);
             subTree->setRightPtr(next);
-        }
     }
     return(subTree);
 }
@@ -113,7 +90,7 @@ Item BST<Item, Key>::search(Key key) const
     try
     {
        m_Poke = recSearch(key, temp);
-       std::cout << m_Poke.getAmName();
+        std::cout << m_Poke.getAmName();
         std::cout << " " << m_Poke.getNumber();
         std::cout << " " << m_Poke.getJapanName() << '\n';
        return(m_Poke);
